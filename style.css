@@ -91,6 +91,7 @@ font-weight: 900;
 }
 
 .dropdown-style{
+    cursor: pointer;
     appearance:none;
     padding-top: 9px;
     border: 4px solid #000467;
@@ -149,7 +150,6 @@ tr:hover{
     flex-direction: column;
     flex-wrap: wrap;
     height: 120px;
-    width: 516px;
 }
 
 section{
@@ -159,4 +159,37 @@ section{
 
 .width {
     width: 250px;
+}
+
+#inputdiv {
+    display: flex;
+    width: 200px;
+}
+
+#modules, #notes{
+    width:100%;
+}
+
+button{
+    text-align: center;
+
+    width: 31.8%;
+    appearance:none;
+    border: 4px solid #000467;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    min-height: 20px;
+    border-radius: 22px;
+    text-align: center;
+    color: #000467;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+table{
+    width: 200px;
+    justify-content: center;
 }

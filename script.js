@@ -1,5 +1,4 @@
 // add Row
-let rIndex, table = document.getElementById("table")
 let grades = []
 let allGrades = [[],[],[],[],[]]
 
@@ -17,13 +16,13 @@ function getValue(){
     console.log(allGrades)
 }
 
-function randomIndex(){
-    return 1
+function allNumberTable(){
+
 }
 
 function addRow(id){
-
-    let newRow = table.insertRow(table.length),
+    let table = document.getElementById("table" + id),
+        newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
         cell2 = newRow.insertCell(1),
         notes = document.getElementById("notes").value,
@@ -36,14 +35,16 @@ function addRow(id){
     console.log(notes + "  " + modules)
 
     // call the function to set the evvent to the new row
-
+    document.getElementById("notes").value = "";
+    document.getElementById("modules").value = "";
     selectRow()
     getValue()
 }
 
 // Display Selected row data into input
 
-function selectRow(){
+function selectRow(id){
+    let rIndex, table = document.getElementById("table" + id)
     for(var i = 0; i < table.rows.length; i++){
         table.rows[i].onclick = function()
         {
@@ -55,13 +56,22 @@ function selectRow(){
     }
 }
 
-function editRow(){
-    let modules = document.getElementById("modules").value,
-          notes = document.getElementById("notes").value
+function editRow(id){
+    let rIndex, table = document.getElementById("table" + id),
+        modules = document.getElementById("modules").value,
+        notes = document.getElementById("notes").value
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
 }
 
-function removeRow(){
+function removeRow(id){
+    let rIndex, table = document.getElementById("table" + id)
     table.deleteRow(rIndex)
+    document.getElementById("notes").value = "";
+    document.getElementById("modules").value = "";
 }
+
+
+
+var liste = [2, 3, 4, 5, 6, 7]
+
