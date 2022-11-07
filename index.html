@@ -46,11 +46,11 @@
 
         <div class="tab tab-2" >
                 modules : <input id="modules" name="modules" type="number" min="1" max="999" >
-                notes : <input id="notes" name="notes" type="number" min="1" max="6" >
+                notes : <input id="notes" name="notes" type="number" step=".5" min="1" max="6" >
                 
                 <button onclick="addRow()">Add</button>
-                <button>Edit</button>
-                <button>Remove</button>
+                <button onclick="editRow()" >Edit</button>
+                <button onclick="removeRow()" >Remove</button>
         </div>
         
     </main>
