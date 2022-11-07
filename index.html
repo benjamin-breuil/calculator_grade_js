@@ -22,9 +22,7 @@
         </div>
     </header>
     <main>
-        <div id="dropdown-div">
-
-
+        <div   id="dropdown-div" >
             <form id="dropdown-culture-g" name="dropdown-culture-g" action="">
                 <select class="dropdown-style" name="semestre" id="semestre">
                     <option value="semestre-1">Semestre 1</option>
@@ -46,61 +44,29 @@
             </form>
         </div>
 
-        <div id="input-note" >
-            <section class="width-form" id="form-pro" >
-                <form action="">
-                        <label for="notes"></label>
-                        <input type="number" placeholder="Note" min="1" max="6">
-                        <input type="number" placeholder="Module" min="1" max="999">
-                        <input type="button" value="Ajouter une note">
-                </form>
-
-
-            </section>
-            
-            <section class="width-form" id="form-inter" >
-                <form action="">
-                    <label for="notes"></label>
-                    <input type="number" placeholder="Note" min="1" max="6">
-                    <input type="number" placeholder="Module" min="1" max="999">
-                    <input type="button" value="Ajouter une note">
-                </form>
-            </section>
-
-            <section class="width-form" id="form-base" >
-                <form action="">
-                    <label for="notes"></label>
-                    <input type="number" placeholder="Note" min="1" max="6">
-                    <select class="" name="branche" id="">
-                        <option value="Anglais">Anglais</option>
-                        <option value="Math">Math</option>
-                    </select>
-                    <input type="button" value="Ajouter une note">
-                </form>
-            </section>
-
-            <section class="width-form" id="form-cg" >
-                <form action="">
-                    <label for="notes"></label>
-                    <input type="number" placeholder="Note" min="1" max="6">
-                    <select class="" name="branche" id="">
-                        <option value="LACO">LACO</option>
-                        <option value="SOCI">SOCI</option>
-                    </select>
-                    <input type="button" value="Ajouter une note">
-                </form>
-            </section>
-
-            <section class="width-form" id="form-tpi" >
-                <form action="">
-                        <label for="notes"></label>
-                        <input type="number" placeholder="Note" min="1" max="6">
-                        <input type="number" placeholder="Module" min="1" max="999">
-                        <input type="button" value="Ajouter une note">
-                </form>
-            </section>
+        <div class="tab tab-2" >
+                modules : <input id="modules" name="modules" type="number" min="1" max="999" >
+                notes : <input id="notes" name="notes" type="number" min="1" max="6" >
+                
+                <button onclick="addRow()">Add</button>
+                <button>Edit</button>
+                <button>Remove</button>
         </div>
+        
     </main>
+    <section>
+        <div class="container" >
+            <div class="tab tab-1" >
+                <table id="table" border="1" >
+                    <tr>
+                        <th>Modules</th>
+                        <th>Notes</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+ 
     <footer></footer>
 <script src="./script.js"></script>
 </body>
