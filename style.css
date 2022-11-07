@@ -134,13 +134,6 @@ section {
     float: left;
 }
 
-.tab-2 input{
-    display: block;
-}
-
-
-
-
 
 tr{
     transition: all 0.001s ease-in-out;
@@ -149,4 +142,21 @@ tr{
 tr:hover{
     background-color: rgb(174, 174, 174);
     cursor: pointer;
+}
+
+#flexInput {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 120px;
+    width: 516px;
+}
+
+section{
+    float: left;
+    display: flex;
+}
+
+.width {
+    width: 250px;
 }

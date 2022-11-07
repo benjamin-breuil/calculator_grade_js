@@ -3,6 +3,8 @@ let rIndex, table = document.getElementById("table")
 let grades = []
 let allGrades = [[],[],[],[],[]]
 
+
+
 function getValue(){
     let note = document.getElementById("notes").value
     grades.push(note)
@@ -15,7 +17,11 @@ function getValue(){
     console.log(allGrades)
 }
 
-function addRow(){
+function randomIndex(){
+    return 1
+}
+
+function addRow(id){
 
     let newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
