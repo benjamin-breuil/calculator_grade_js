@@ -2,24 +2,6 @@
 let grades = []
 let allGrades = [[],[],[],[],[]]
 
-function checkEmptyInput(id){
-    let rIndex, table = document.getElementById("table" + id),
-        isEmpty = false,
-        notes = document.getElementById("notes" + id).value,
-        modules = document.getElementById("modules" + id).value
-
-    if(notes === ""){
-        isEmpty = true
-    } else if (modules === ""){
-        isEmpty = true
-    }
-
-    return isEmpty
-    
-
-}
-
-
 function getValue(){
     let note = document.getElementById("notes" + id).value
     grades.push(note)
@@ -33,10 +15,6 @@ function getValue(){
 }
 
 function addRow(id){
-    if(!checkEmptyInput()){
-        
-    }
-
     let table = document.getElementById("table" + id),
         newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
