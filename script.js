@@ -51,7 +51,7 @@ function selectRow(id){
     }
     // attention a voir //
     // attention
-    for(var i = 0; i < table.rows.length; i++){
+    for(var i = 1; i < table.rows.length; i++){
         table.rows[i].onclick = function(){
             rIndex = this.rowIndex
             this.classList.toggle("selected");
@@ -79,7 +79,7 @@ function editRow(id){
 
         // attention a voir //
     // attention
-    for(var i = 0; i < table.rows.length; i++){
+    for(var i = 1; i < table.rows.length; i++){
         table.rows[i].onclick = function(){
             rIndex = this.rowIndex
             this.classList.toggle("selected");
@@ -109,7 +109,7 @@ function removeRow(id){
 
         // attention a voir //
     // attention
-    for(var i = 0; i < table.rows.length; i++){
+    for(var i = 1; i < table.rows.length; i++){
         table.rows[i].onclick = function(){
             rIndex = this.rowIndex
             this.classList.toggle("selected");
