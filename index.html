@@ -52,8 +52,8 @@
 <section id="flexInput" >
     <div>
         <div sid="inputdiv">
-            <input placeholder="Modules" id="modules" name="modules" type="number" min="1" max="999" >
-            <input placeholder="Notes" id="notes" name="notes" type="number" step=".5" min="1" max="6" >
+            <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999" >
+            <input placeholder="Notes" id="notes1" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
 
 
@@ -63,6 +63,27 @@
 
         <div class="tab tab-1" >
             <table id="table1" border="1" >
+                <tr>
+                    <th>Modules</th>
+                    <th>Notes</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <div sid="inputdiv">
+            <input placeholder="Modules" id="modules2" name="modules" type="number" min="1" max="999" >
+            <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6" >
+        </div>
+
+
+        <button onclick="addRow(2)">Add</button>
+        <button onclick="editRow(2)" >Edit</button>
+        <button onclick="removeRow(2)" >Remove</button>
+
+        <div class="tab tab-1" >
+            <table id="table2" border="1" >
                 <tr>
                     <th>Modules</th>
                     <th>Notes</th>

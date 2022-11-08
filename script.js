@@ -2,10 +2,26 @@
 let grades = []
 let allGrades = [[],[],[],[],[]]
 
+function checkEmptyInput(id){
+    let rIndex, table = document.getElementById("table" + id),
+        isEmpty = false,
+        notes = document.getElementById("notes" + id).value,
+        modules = document.getElementById("modules" + id).value
+
+    if(notes === ""){
+        isEmpty = true
+    } else if (modules === ""){
+        isEmpty = true
+    }
+
+    return isEmpty
+    
+
+}
 
 
 function getValue(){
-    let note = document.getElementById("notes").value
+    let note = document.getElementById("notes" + id).value
     grades.push(note)
     allGrades[0].push(grades)
 
@@ -16,17 +32,17 @@ function getValue(){
     console.log(allGrades)
 }
 
-function allNumberTable(){
-
-}
-
 function addRow(id){
+    if(!checkEmptyInput()){
+        
+    }
+
     let table = document.getElementById("table" + id),
         newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
         cell2 = newRow.insertCell(1),
-        notes = document.getElementById("notes").value,
-        modules = document.getElementById("modules").value
+        notes = document.getElementById("notes" + id).value,
+        modules = document.getElementById("modules" + id).value
 
 
     cell1.innerHTML = modules
@@ -35,8 +51,8 @@ function addRow(id){
     console.log(notes + "  " + modules)
 
     // call the function to set the evvent to the new row
-    document.getElementById("notes").value = "";
-    document.getElementById("modules").value = "";
+    document.getElementById("notes" + id).value = "";
+    document.getElementById("modules" + id).value = "";
     selectRow()
     getValue()
 }
@@ -49,8 +65,8 @@ function selectRow(id){
         table.rows[i].onclick = function()
         {
             rIndex = this.rowIndex
-            document.getElementById("modules").value = this.cells[0].innerHTML
-            document.getElementById("notes").value = this.cells[1].innerHTML
+            document.getElementById("modules" + id).value = this.cells[0].innerHTML
+            document.getElementById("notes" + id).value = this.cells[1].innerHTML
             console.log(rIndex)
         }
     }
@@ -58,8 +74,8 @@ function selectRow(id){
 
 function editRow(id){
     let rIndex, table = document.getElementById("table" + id),
-        modules = document.getElementById("modules").value,
-        notes = document.getElementById("notes").value
+        modules = document.getElementById("modules" + id).value,
+        notes = document.getElementById("notes" + id).value
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
 }
@@ -67,8 +83,8 @@ function editRow(id){
 function removeRow(id){
     let rIndex, table = document.getElementById("table" + id)
     table.deleteRow(rIndex)
-    document.getElementById("notes").value = "";
-    document.getElementById("modules").value = "";
+    document.getElementById("notes" + id).value = "";
+    document.getElementById("modules" + id).value = "";
 }
 
 
