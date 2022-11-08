@@ -50,9 +50,11 @@
     </main>
 
 <section id="flexInput" >
-    <div>
-        <div sid="inputdiv">
+    <div class="maxWinput" >
+        <div>
+            <label for="">Module :</label>
             <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999" >
+            <label for="">Note :</label>
             <input placeholder="Notes" id="notes1" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
 
@@ -71,9 +73,11 @@
         </div>
     </div>
 
-    <div>
-        <div sid="inputdiv">
+    <div class="maxWinput"  >
+        <div>
+            <label for="">Module : </label>
             <input placeholder="Modules" id="modules2" name="modules" type="number" min="1" max="999" >
+            <label for="">Note : </label>
             <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
 
@@ -90,6 +94,96 @@
                 </tr>
             </table>
         </div>
+    </div>
+
+    <div class="maxWinput"  >
+        <div>
+            <label for="">Branche :</label>
+            <select class="wInput" name="" id="modules3" >
+                <option value="Anglais">Anglais</option>
+                <option  value="Math">Math</option>
+            </select>
+            <label for="">Note : </label>
+            <input placeholder="Notes" id="notes3" name="notes" type="number" step=".5" min="1" max="6" >
+        </div>
+
+
+        <button onclick="addRow(3)">Add</button>
+        <button onclick="editRow(3)" >Edit</button>
+        <button onclick="removeRow(3)" >Remove</button>
+
+        <div class="tab tab-1" >
+            <table id="table3" border="1" >
+                <tr>
+                    <th>Branches</th>
+                    <th>Notes</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="maxWinput"  >
+        <div>
+            <label for="">Branche : </label>
+            <select class="wInput" name="" id="modules4" >
+                <option value="LACO">LACO</option>
+                <option value="SOCI">SOCI</option>
+            </select>
+            <label for="">Note : </label>
+            <input placeholder="Notes" id="notes4" name="notes" type="number" step=".5" min="1" max="6" >
+        </div>
+
+
+        <button onclick="addRow(4)">Add</button>
+        <button onclick="editRow(4)" >Edit</button>
+        <button onclick="removeRow(4)" >Remove</button>
+
+        <div class="tab tab-1" >
+            <table id="table4" border="1" >
+                <tr>
+                    <th>Branches</th>
+                    <th>Note</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="maxWinput">
+        <div>
+            <label for="">Description : </label>
+            <input placeholder="Description" id="modules5" name="modules" type="text" min="1" max="20" >
+            <label for="">Note : </label>
+            <input placeholder="Notes" id="notes5" name="notes" type="number" step=".5" min="1" max="6" >
+        </div>
+    
+    
+        <button onclick="addRow(5)">Add</button>
+        <button onclick="editRow(5)" >Edit</button>
+        <button onclick="removeRow(5)" >Remove</button>
+
+        <div class="tab tab-1" >
+            <table id="table5" border="1" >
+                <tr>
+                    <th class="cantSelect" >Description</th>
+                    <th class="cantSelect" >Notes</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="maxWinput">
+        <div  id="chiffreRE"  >
+            <h2>X</h2>
+        </div>
+        <div  id="textRE" >
+            <h2>Échec</h2>
+        </div>
+        <table border=""1 >
+            <tr>
+                <th>Branches</th>
+                <th>Moyennes</th>
+            </tr>
+        </table>
     </div>
 </section>
 

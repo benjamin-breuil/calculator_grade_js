@@ -6,7 +6,7 @@ let rIndex
 function getValue(id){
     let note = document.getElementById("notes" + id).value
     grades.push(note)
-    allGrades[0].push(grades)
+    allGrades[id].push(grades)
 
 // TEST
  
@@ -14,6 +14,8 @@ function getValue(id){
     console.log(note)
     console.log(allGrades)
 }
+
+
 
 function addRow(id){
     let table = document.getElementById("table" + id),
@@ -30,10 +32,9 @@ function addRow(id){
     console.log(notes + "  " + modules)
 
     // call the function to set the evvent to the new row
-    document.getElementById("notes" + id).value = "";
-    document.getElementById("modules" + id).value = "";
     selectRow(id)
     getValue(id)
+
 }
 
 // Display Selected row data into input
@@ -41,14 +42,24 @@ function addRow(id){
 function selectRow(id){
     let table = document.getElementById("table" + id)
     for(var i = 0; i < table.rows.length; i++){
-        table.rows[i].onclick = function()
-        {
+        table.rows[i].onclick = function(){
             rIndex = this.rowIndex
             document.getElementById("modules" + id).value = this.cells[0].innerHTML
             document.getElementById("notes" + id).value = this.cells[1].innerHTML
             console.log(rIndex)
         }
     }
+    // attention a voir //
+    // attention
+    for(var i = 0; i < table.rows.length; i++){
+        table.rows[i].onclick = function(){
+            rIndex = this.rowIndex
+            this.classList.toggle("selected");
+        }
+    }
+
+    // attention // 
+    // attention //
 }
 
 function editRow(id){
@@ -65,6 +76,18 @@ function editRow(id){
             console.log(rIndex)
         }
     }
+
+        // attention a voir //
+    // attention
+    for(var i = 0; i < table.rows.length; i++){
+        table.rows[i].onclick = function(){
+            rIndex = this.rowIndex
+            this.classList.toggle("selected");
+        }
+    }
+
+    // attention // 
+    // attention //
 
     console.log(rIndex)
     table.rows[rIndex].cells[0].innerHTML = modules;
@@ -83,10 +106,21 @@ function removeRow(id){
             console.log(rIndex)
         }
     }
-    
+
+        // attention a voir //
+    // attention
+    for(var i = 0; i < table.rows.length; i++){
+        table.rows[i].onclick = function(){
+            rIndex = this.rowIndex
+            this.classList.toggle("selected");
+        }
+    }
+
+    // attention // 
+    // attention //
+
     table.deleteRow(rIndex)
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
 }
-
 
