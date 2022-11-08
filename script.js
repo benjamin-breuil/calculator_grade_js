@@ -1,8 +1,9 @@
-// add Row
 let grades = []
 let allGrades = [[],[],[],[],[]]
+let rIndex
 
-function getValue(){
+
+function getValue(id){
     let note = document.getElementById("notes" + id).value
     grades.push(note)
     allGrades[0].push(grades)
@@ -31,14 +32,14 @@ function addRow(id){
     // call the function to set the evvent to the new row
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
-    selectRow()
-    getValue()
+    selectRow(id)
+    getValue(id)
 }
 
 // Display Selected row data into input
 
 function selectRow(id){
-    let rIndex, table = document.getElementById("table" + id)
+    let table = document.getElementById("table" + id)
     for(var i = 0; i < table.rows.length; i++){
         table.rows[i].onclick = function()
         {
@@ -51,21 +52,41 @@ function selectRow(id){
 }
 
 function editRow(id){
-    let rIndex, table = document.getElementById("table" + id),
+    let table = document.getElementById("table" + id),
         modules = document.getElementById("modules" + id).value,
         notes = document.getElementById("notes" + id).value
+
+    for(var i = 0; i < table.rows.length; i++){
+        table.rows[i].onclick = function()
+        {
+            rIndex = this.rowIndex
+            document.getElementById("modules" + id).value = this.cells[0].innerHTML
+            document.getElementById("notes" + id).value = this.cells[1].innerHTML
+            console.log(rIndex)
+        }
+    }
+
+    console.log(rIndex)
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
 }
 
 function removeRow(id){
-    let rIndex, table = document.getElementById("table" + id)
+    let table = document.getElementById("table" + id)
+
+    for(var i = 0; i < table.rows.length; i++){
+        table.rows[i].onclick = function()
+        {
+            rIndex = this.rowIndex
+            document.getElementById("modules" + id).value = this.cells[0].innerHTML
+            document.getElementById("notes" + id).value = this.cells[1].innerHTML
+            console.log(rIndex)
+        }
+    }
+    
     table.deleteRow(rIndex)
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
 }
 
-
-
-var liste = [2, 3, 4, 5, 6, 7]
 
