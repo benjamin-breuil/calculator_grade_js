@@ -30,16 +30,8 @@ let stockNote = {
     ]
 }
 
-function moyenneINFO(){
-    let allPRO = stockNote.branche[0].notes,
-        allInter = stockNote.branche[1].notes
-
-    console.log(allPRO)
-    
-}
-
 function addNoteInObject(id){
-    let note = document.getElementById("notes" + id).value
+    let note = document.getElementById("notes" + id). valueAsNumber
 //    grades.push(note)
     stockNote.branche[id].notes.push(note)
 
@@ -51,7 +43,7 @@ function addRow(id){
         newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
         cell2 = newRow.insertCell(1),
-        notes = document.getElementById("notes" + id).value,
+        notes = document.getElementById("notes" + id). valueAsNumber
         modules = document.getElementById("modules" + id).value
 
 
@@ -69,7 +61,7 @@ function addRow(id){
 function editRow(id){
     let table = document.getElementById("table" + id),
         modules = document.getElementById("modules" + id).value,
-        notes = document.getElementById("notes" + id).value
+        notes = document.getElementById("notes" + id). valueAsNumber
     randomIndexFunction(table, id)
 
     stockNote.branche[id].notes[rIndex - 1] = notes
@@ -134,3 +126,24 @@ function randomIndexFunction(tables, ids){
 //        this.classList.toggle("true")
 //    }
 // })
+
+
+
+
+  
+  function moyennePRO() {
+    let allPRO = stockNote.branche[0].notes,
+        sum = 0;
+  
+    for (const item of allPRO) {
+      sum += item;
+    }
+
+    
+    console.log("somme" + " " + sum);
+    console.log("moyenne" + " " + sum/allPRO.length)
+
+    return sum/allPRO.length
+  }
+  
+  
