@@ -53,8 +53,31 @@
     <div class="maxWinput" >
         <div>
             <label for="">Module :</label>
-            <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999" >
+            <input placeholder="Modules" id="modules0" name="modules" type="number" min="1" max="999" >
             <label for="">Note :</label>
+            <input placeholder="Notes" id="notes0" name="notes" type="number" step=".5" min="1" max="6" >
+        </div>
+
+
+        <button onclick="addRow(0)">Add</button>
+        <button onclick="editRow(0)" >Edit</button>
+        <button onclick="removeRow(0)" >Remove</button>
+
+        <div class="tab tab-1" >
+            <table id="table0" border="1" >
+                <tr>
+                    <th class="thStyle" >Modules</th>
+                    <th class="thStyle" >Notes</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="maxWinput"  >
+        <div>
+            <label for="">Module : </label>
+            <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999" >
+            <label for="">Note : </label>
             <input placeholder="Notes" id="notes1" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
 
@@ -75,8 +98,11 @@
 
     <div class="maxWinput"  >
         <div>
-            <label for="">Module : </label>
-            <input placeholder="Modules" id="modules2" name="modules" type="number" min="1" max="999" >
+            <label for="">Branche :</label>
+            <select class="select" class="wInput" name="" id="modules2" >
+                <option value="Anglais">Anglais</option>
+                <option  value="Math">Math</option>
+            </select>
             <label for="">Note : </label>
             <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
@@ -89,7 +115,7 @@
         <div class="tab tab-1" >
             <table id="table2" border="1" >
                 <tr>
-                    <th class="thStyle" >Modules</th>
+                    <th class="thStyle" >Branches</th>
                     <th class="thStyle" >Notes</th>
                 </tr>
             </table>
@@ -98,10 +124,10 @@
 
     <div class="maxWinput"  >
         <div>
-            <label for="">Branche :</label>
-            <select class="wInput" name="" id="modules3" >
-                <option value="Anglais">Anglais</option>
-                <option  value="Math">Math</option>
+            <label for="">Branche : </label>
+            <select class="select" class="wInput" name="" id="modules3" >
+                <option value="LACO">LACO</option>
+                <option value="SOCI">SOCI</option>
             </select>
             <label for="">Note : </label>
             <input placeholder="Notes" id="notes3" name="notes" type="number" step=".5" min="1" max="6" >
@@ -116,32 +142,6 @@
             <table id="table3" border="1" >
                 <tr>
                     <th class="thStyle" >Branches</th>
-                    <th class="thStyle" >Notes</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="maxWinput"  >
-        <div>
-            <label for="">Branche : </label>
-            <select class="wInput" name="" id="modules4" >
-                <option value="LACO">LACO</option>
-                <option value="SOCI">SOCI</option>
-            </select>
-            <label for="">Note : </label>
-            <input placeholder="Notes" id="notes4" name="notes" type="number" step=".5" min="1" max="6" >
-        </div>
-
-
-        <button onclick="addRow(4)">Add</button>
-        <button onclick="editRow(4)" >Edit</button>
-        <button onclick="removeRow(4)" >Remove</button>
-
-        <div class="tab tab-1" >
-            <table id="table4" border="1" >
-                <tr>
-                    <th class="thStyle" >Branches</th>
                     <th class="thStyle" >Note</th>
                 </tr>
             </table>
@@ -151,18 +151,18 @@
     <div class="maxWinput">
         <div>
             <label for="">Description : </label>
-            <input placeholder="Description" id="modules5" name="modules" type="text" min="1" max="20" >
+            <input placeholder="Description" id="modules4" name="modules" type="text" min="1" max="20" >
             <label for="">Note : </label>
-            <input placeholder="Notes" id="notes5" name="notes" type="number" step=".5" min="1" max="6" >
+            <input placeholder="Notes" id="notes4" name="notes" type="number" step=".5" min="1" max="6" >
         </div>
     
     
-        <button onclick="addRow(5)">Add</button>
-        <button onclick="editRow(5)" >Edit</button>
-        <button onclick="removeRow(5)" >Remove</button>
+        <button onclick="addRow(4)">Add</button>
+        <button onclick="editRow(4)" >Edit</button>
+        <button onclick="removeRow(4)" >Remove</button>
 
         <div class="tab tab-1" >
-            <table id="table5" border="1" >
+            <table id="table4" border="1" >
                 <tr>
                     <th class="thStyle" >Description</th>
                     <th class="thStyle" >Notes</th>
@@ -182,6 +182,22 @@
             <tr>
                 <th class="thStyle"  >Branches</th>
                 <th class="thStyle"  >Moyennes</th>
+            </tr>
+            <tr>
+                <td>TPI</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Compétences en info.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Culture G.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Compétences de b. élargies</td>
+                <td></td>
             </tr>
         </table>
     </div>

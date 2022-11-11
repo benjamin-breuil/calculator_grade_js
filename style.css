@@ -247,3 +247,18 @@ footer {
     margin: 0 auto;
     background: #000461;
 }
+
+input, .select{
+    width: 100%;
+    background: none;
+    border: 4px solid #000461;
+    border-radius: 23px;
+}
+
+input {
+    height: 40px;
+}
+
+.select {
+    height: 50px;
+}
