@@ -127,9 +127,10 @@ tr:hover{
     cursor: pointer;
 }
 
-
-
-
+.tab{
+    height: 400px;
+    overflow: scroll;
+}
 
 
 button{
@@ -236,6 +237,7 @@ tr{cursor: pointer; transition: all 0.1s ease-in-out}
 .thStyle {
     background-color: #000461;
     color: white;
+    width: 100%;
 }
 
 footer {

@@ -1,16 +1,6 @@
 let grades = []
 let allGrades = [[],[],[],[],[]]
 let rIndex
-//let test = {
-//    name: "Notes"
-//    branche: [
-//        {
-//            name: "Math"
-//            notes: []
-//        },
-//    ]
-//}
-
 let stockNote = {
     names: 'Notes',
     branche: [
@@ -49,12 +39,6 @@ function addNoteInObject(id){
     console.log(stockNote)
 }
 
-function editNoteInObject(id, rowNumber){
-    let note = document.getElementById("notes" + id).value
-    stockNote.branche[id].notes.splice(rowNumber,1, note)
-    console.log(stockNote)
-}
-
 function addRow(id){
     let table = document.getElementById("table" + id),
         newRow = table.insertRow(table.length),
@@ -80,13 +64,16 @@ function editRow(id){
     let table = document.getElementById("table" + id),
         modules = document.getElementById("modules" + id).value,
         notes = document.getElementById("notes" + id).value
-
-    editNoteInObject(id)
     randomIndexFunction(table, id)
 
-    console.log(rIndex)
+    stockNote.branche[id].notes[rIndex - 1] = notes
+
+
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
+
+
+    console.log(stockNote)
 }
 
 function removeRow(id){
