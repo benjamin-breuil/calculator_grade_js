@@ -264,3 +264,11 @@ input {
 .select {
     height: 50px;
 }
+
+.false {
+    color: red;
+}
+
+.true {
+    color: black;
+}

@@ -1,5 +1,4 @@
 let grades = []
-let allGrades = [[],[],[],[],[]]
 let rIndex
 let stockNote = {
     names: 'Notes',
@@ -31,6 +30,14 @@ let stockNote = {
     ]
 }
 
+function moyenneINFO(){
+    let allPRO = stockNote.branche[0].notes,
+        allInter = stockNote.branche[1].notes
+
+    console.log(allPRO)
+    
+}
+
 function addNoteInObject(id){
     let note = document.getElementById("notes" + id).value
 //    grades.push(note)
@@ -52,7 +59,6 @@ function addRow(id){
     cell2.innerHTML = notes
 
     console.log(notes + "  " + modules)
-
     randomIndexFunction(table, id)
     addNoteInObject(id)
 }
@@ -81,9 +87,13 @@ function removeRow(id){
 
     randomIndexFunction(table, id)
 
+    stockNote.branche[id].notes.splice(rIndex - 1,1)
+
     table.deleteRow(rIndex)
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
+
+    console.log(stockNote)
 }
 
 function changeBackgroundRow(tables){
@@ -111,3 +121,16 @@ function randomIndexFunction(tables, ids){
 
     return rIndex
 }
+
+
+
+// let allInput = document.getElementsByClassName('redIfFalseNumber')
+
+// allInput.addEventListener('input', function(e){
+//    let note = allInput
+//    if (note < 1 || note > 6) {
+//        this.classList.toggle("false")
+//    } else {
+//        this.classList.toggle("true")
+//    }
+// })
