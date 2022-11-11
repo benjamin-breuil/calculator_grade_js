@@ -129,7 +129,9 @@ function randomIndexFunction(tables, ids){
 
 
 
+// moyenne de toute les branches avant pondérations
 
+// moyenne école pro
   
   function moyennePRO() {
     let allPRO = stockNote.branche[0].notes,
@@ -139,11 +141,46 @@ function randomIndexFunction(tables, ids){
       sum += item;
     }
 
+    // TEST
     
-    console.log("somme" + " " + sum);
-    console.log("moyenne" + " " + sum/allPRO.length)
+    console.log("somme pro" + " " + sum);
+    console.log("moyenne pro" + " " + sum/allPRO.length)
+
+    let reponse = sum/allPRO.length
+
+//    document.getElementById("averageINFO").innerText = reponse
 
     return sum/allPRO.length
   }
   
+// moyenne cours inter
+
+  function moyenneINTER() {
+    let allINTER = stockNote.branche[1].notes,
+    sum = 0;
+
+    for (const item of allINTER) {
+    sum += item;
+    }
+
+    // TEST
+
+    console.log("somme inter" + " " + sum);
+    console.log("moyenne inter" + " " + sum/allINTER.length)
+
+    let reponse = sum/allINTER.length
+    document.getElementById("averageINFO").innerText = reponse
+
+    return sum/allINTER.length
+  }
   
+  // pondération cours inter + cours pro
+
+  function ponderationINFO(){
+    let pond = 0.8
+    let proPOND = moyennePRO() * pond
+
+    console.log("pondération de moyenne inter et moyenne pro" + "   " + proPOND)
+    return proPOND
+
+  }
