@@ -53,6 +53,9 @@ function addRow(id){
     console.log(notes + "  " + modules)
     randomIndexFunction(table, id)
     addNoteInObject(id)
+
+    // Moyenne branches
+    moyenneProInter()
 }
 
 
@@ -72,6 +75,10 @@ function editRow(id){
 
 
     console.log(stockNote)
+
+    // Moyenne branches
+    
+     moyenneProInter()
 }
 
 function removeRow(id){
@@ -86,6 +93,9 @@ function removeRow(id){
     document.getElementById("modules" + id).value = "";
 
     console.log(stockNote)
+
+        // Moyenne branches
+        moyenneProInter()
 }
 
 function changeBackgroundRow(tables){
@@ -148,9 +158,9 @@ function randomIndexFunction(tables, ids){
 
     let reponse = sum/allPRO.length
 
-//    document.getElementById("averageINFO").innerText = reponse
 
-    return sum/allPRO.length
+
+    return Math.round(sum/allPRO.length)
   }
   
 // moyenne cours inter
@@ -168,19 +178,21 @@ function randomIndexFunction(tables, ids){
     console.log("somme inter" + " " + sum);
     console.log("moyenne inter" + " " + sum/allINTER.length)
 
-    let reponse = sum/allINTER.length
-    document.getElementById("averageINFO").innerText = reponse
+    return Math.round(sum/allINTER.length)
 
-    return sum/allINTER.length
   }
-  
-  // pondération cours inter + cours pro
 
-  function ponderationINFO(){
-    let pond = 0.8
-    let proPOND = moyennePRO() * pond
+  function moyenneProInter(){
 
-    console.log("pondération de moyenne inter et moyenne pro" + "   " + proPOND)
-    return proPOND
+    sum = ((moyennePRO() * 0.8) + (moyenneINTER()*0.2))
 
+    if (sum >= 6) {
+        document.getElementById("averageINFO").innerText = "6"
+    } else {
+        document.getElementById("averageINFO").innerText = sum
+    }
+
+    
+    console.log(sum)
+    return sum
   }
