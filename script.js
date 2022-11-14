@@ -63,6 +63,7 @@ function addRow(id){
 
     randomIndexFunction(table, id)
     addNoteInObject(id)
+    moyennes()
     // Moyenne branches
 })
 }
@@ -80,7 +81,7 @@ function editRow(id){
 
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
-
+    moyennes()
 
     // Moyenne branches
 })
@@ -98,7 +99,7 @@ function removeRow(id){
     table.deleteRow(rIndex)
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
-
+    moyennes()
 })
 
 }
@@ -137,20 +138,13 @@ function moyennes(){
         notesINTER = stockNote.branche[1].notes,
         sumPRO = 0,
         sumINTER = 0
-
+    
     for (const item of notesPRO) {
         sumPRO += item;
     }
 
     for (const item of notesINTER) {
         sumINTER += item;
-    }
-
-
-    if (isNaN(notesPRO)) {
-        sumPRO = 0
-    } if(isNaN(notesINTER)){
-        sumINTER = 0
     }
 
     sumPRO = Math.round(2*(sumPRO / notesPRO.length)) / 2
@@ -160,5 +154,9 @@ function moyennes(){
     console.log("sumINTER" + " " + sumINTER)
 
     let pondINFO = (sumPRO * 0.8) + (sumINTER * 0.2)
+
+    console.log("pondINFO" + "  " + pondINFO)
+
+    document.getElementById("averageINFO").innerHTML = pondINFO
         
 }
