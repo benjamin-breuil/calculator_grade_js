@@ -31,7 +31,7 @@ let stockNote = {
 }
 
 function addNoteInObject(id){
-    let note = document.getElementById("notes" + id). valueAsNumber
+    let note = document.getElementById("notes" + id).valueAsNumber
 //    grades.push(note)
     stockNote.branche[id].notes.push(note)
 
@@ -57,6 +57,7 @@ function addRow(id){
     // Moyenne branches
     moyenneProInter()
     moyenneBase()
+    moyenneCG()
 }
 
 
@@ -81,6 +82,7 @@ function editRow(id){
 
      moyenneProInter()
      moyenneBase()
+     moyenneCG()
 }
 
 function removeRow(id){
@@ -99,6 +101,7 @@ function removeRow(id){
         // Moyenne branches
     moyenneProInter()
     moyenneBase()
+    moyenneCG()
 }
 
 function changeBackgroundRow(tables){
@@ -173,15 +176,14 @@ function randomIndexFunction(tables, ids){
   }
 
   function moyenneProInter(){
-
     sum = ((moyennePRO() * 0.8) + (moyenneINTER()*0.2))
-
-
 
     console.log("sum withou math round" + "   " + sum)
 
     sum = Math.round(2 * sum) / 2
     console.log("sum math round"  + "   " + sum)
+
+    document.getElementById("averageINFO").innerText = sum
     
     console.log(sum)
     return sum
@@ -200,9 +202,37 @@ function randomIndexFunction(tables, ids){
     // TEST
 
     console.log("somme pro" + " " + sum);
-    console.log("moyenne pro" + " " + sum/allBASE.length)
 
-    let reponse = sum/allBASE.length
 
-    return Math.round(sum/allBASE.length)
+    sum = sum/allBASE.length
+    sum = Math.round(2 * sum)/2
+
+    console.log("moyenne pro" + " " + sum)
+    document.getElementById("averageBase").innerText = sum
+    
+
+    return sum
   }
+
+  // Moyennes Culture G 
+
+  function moyenneCG() {
+    let allCG = stockNote.branche[3].notes,
+    sum = 0;
+
+    for (const item of allCG) {
+    sum += item;
+    }
+
+    // TEST
+
+
+    sum = sum/allCG.length
+    sum = Math.round(2 * sum)/2
+
+    document.getElementById("averageCG").innerText = sum
+    
+
+    return sum
+  }
+  
