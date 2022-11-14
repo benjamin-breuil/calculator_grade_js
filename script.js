@@ -56,6 +56,7 @@ function addRow(id){
 
     // Moyenne branches
     moyenneProInter()
+    moyenneBase()
 }
 
 
@@ -77,8 +78,9 @@ function editRow(id){
     console.log(stockNote)
 
     // Moyenne branches
-    
+
      moyenneProInter()
+     moyenneBase()
 }
 
 function removeRow(id){
@@ -95,7 +97,8 @@ function removeRow(id){
     console.log(stockNote)
 
         // Moyenne branches
-        moyenneProInter()
+    moyenneProInter()
+    moyenneBase()
 }
 
 function changeBackgroundRow(tables){
@@ -124,21 +127,6 @@ function randomIndexFunction(tables, ids){
     return rIndex
 }
 
-
-
-// let allInput = document.getElementsByClassName('redIfFalseNumber')
-
-// allInput.addEventListener('input', function(e){
-//    let note = allInput
-//    if (note < 1 || note > 6) {
-//        this.classList.toggle("false")
-//    } else {
-//        this.classList.toggle("true")
-//    }
-// })
-
-
-
 // moyenne de toute les branches avant pondérations
 
 // moyenne école pro
@@ -158,9 +146,9 @@ function randomIndexFunction(tables, ids){
 
     let reponse = sum/allPRO.length
 
+    sum = Math.round(2 * sum) / 2
 
-
-    return Math.round(sum/allPRO.length)
+    return sum/allPRO.length
   }
   
 // moyenne cours inter
@@ -175,10 +163,12 @@ function randomIndexFunction(tables, ids){
 
     // TEST
 
+    sum = Math.round(2 * sum) / 2
+
     console.log("somme inter" + " " + sum);
     console.log("moyenne inter" + " " + sum/allINTER.length)
 
-    return Math.round(sum/allINTER.length)
+    return sum/allINTER.length
 
   }
 
@@ -186,13 +176,33 @@ function randomIndexFunction(tables, ids){
 
     sum = ((moyennePRO() * 0.8) + (moyenneINTER()*0.2))
 
-    if (sum >= 6) {
-        document.getElementById("averageINFO").innerText = "6"
-    } else {
-        document.getElementById("averageINFO").innerText = sum
-    }
 
+
+    console.log("sum withou math round" + "   " + sum)
+
+    sum = Math.round(2 * sum) / 2
+    console.log("sum math round"  + "   " + sum)
     
     console.log(sum)
     return sum
+  }
+
+  // moyennes c. de base élargie
+
+  function moyenneBase(){
+    let allBASE = stockNote.branche[2].notes,
+    sum = 0;
+
+    for (const item of allBASE) {
+    sum += item;
+    }
+
+    // TEST
+
+    console.log("somme pro" + " " + sum);
+    console.log("moyenne pro" + " " + sum/allBASE.length)
+
+    let reponse = sum/allBASE.length
+
+    return Math.round(sum/allBASE.length)
   }
