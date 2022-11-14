@@ -30,6 +30,13 @@ let stockNote = {
     ]
 }
 
+// ADD ROW
+addRow(0), addRow(1), addRow(2), addRow(3), addRow(4)
+// EDIT ROW
+editRow(0), editRow(1), editRow(2), editRow(3), editRow(4)
+// REM. ROW
+removeRow(0), removeRow(1), removeRow(2), removeRow(3),removeRow(4)
+
 function addNoteInObject(id){
     let note = document.getElementById("notes" + id).valueAsNumber
 //    grades.push(note)
@@ -39,6 +46,9 @@ function addNoteInObject(id){
 }
 
 function addRow(id){
+    const button = document.getElementById('button' + id)
+
+    button.addEventListener('click', function(){
     let table = document.getElementById("table" + id),
         newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
@@ -47,23 +57,19 @@ function addRow(id){
         modules = document.getElementById("modules" + id).value
 
 
-    cell1.innerHTML = modules
-    cell2.innerHTML = notes
 
-    console.log(notes + "  " + modules)
+        cell1.innerHTML = modules
+        cell2.innerHTML = notes    
+
     randomIndexFunction(table, id)
     addNoteInObject(id)
-
     // Moyenne branches
-    moyenneProInter()
-    moyenneBase()
-    moyenneCG()
+})
 }
 
-
-// Display Selected row data into input
-
 function editRow(id){
+    const button = document.getElementById('buttonEdit' + id)
+    button.addEventListener('click', function(){
     let table = document.getElementById("table" + id),
         modules = document.getElementById("modules" + id).value,
         notes = document.getElementById("notes" + id). valueAsNumber
@@ -76,16 +82,13 @@ function editRow(id){
     table.rows[rIndex].cells[1].innerHTML = notes;
 
 
-    console.log(stockNote)
-
     // Moyenne branches
-
-     moyenneProInter()
-     moyenneBase()
-     moyenneCG()
+})
 }
 
 function removeRow(id){
+    const button = document.getElementById('buttonREM' + id)
+    button.addEventListener('click', function(){
     let table = document.getElementById("table" + id)
 
     randomIndexFunction(table, id)
@@ -96,12 +99,8 @@ function removeRow(id){
     document.getElementById("notes" + id).value = "";
     document.getElementById("modules" + id).value = "";
 
-    console.log(stockNote)
+})
 
-        // Moyenne branches
-    moyenneProInter()
-    moyenneBase()
-    moyenneCG()
 }
 
 function changeBackgroundRow(tables){
@@ -130,109 +129,36 @@ function randomIndexFunction(tables, ids){
     return rIndex
 }
 
-// moyenne de toute les branches avant pondérations
 
-// moyenne école pro
-  
-  function moyennePRO() {
-    let allPRO = stockNote.branche[0].notes,
-        sum = 0;
-  
-    for (const item of allPRO) {
-      sum += item;
+
+
+function moyennes(){
+    let notesPRO = stockNote.branche[0].notes,
+        notesINTER = stockNote.branche[1].notes,
+        sumPRO = 0,
+        sumINTER = 0
+
+    for (const item of notesPRO) {
+        sumPRO += item;
     }
 
-    // TEST
-    
-    console.log("somme pro" + " " + sum);
-    console.log("moyenne pro" + " " + sum/allPRO.length)
-
-    let reponse = sum/allPRO.length
-
-    sum = Math.round(2 * sum) / 2
-
-    return sum/allPRO.length
-  }
-  
-// moyenne cours inter
-
-  function moyenneINTER() {
-    let allINTER = stockNote.branche[1].notes,
-    sum = 0;
-
-    for (const item of allINTER) {
-    sum += item;
+    for (const item of notesINTER) {
+        sumINTER += item;
     }
 
-    // TEST
 
-    sum = Math.round(2 * sum) / 2
-
-    console.log("somme inter" + " " + sum);
-    console.log("moyenne inter" + " " + sum/allINTER.length)
-
-    return sum/allINTER.length
-
-  }
-
-  function moyenneProInter(){
-    sum = ((moyennePRO() * 0.8) + (moyenneINTER()*0.2))
-
-    console.log("sum withou math round" + "   " + sum)
-
-    sum = Math.round(2 * sum) / 2
-    console.log("sum math round"  + "   " + sum)
-
-    document.getElementById("averageINFO").innerText = sum
-    
-    console.log(sum)
-    return sum
-  }
-
-  // moyennes c. de base élargie
-
-  function moyenneBase(){
-    let allBASE = stockNote.branche[2].notes,
-    sum = 0;
-
-    for (const item of allBASE) {
-    sum += item;
+    if (isNaN(notesPRO)) {
+        sumPRO = 0
+    } if(isNaN(notesINTER)){
+        sumINTER = 0
     }
 
-    // TEST
+    sumPRO = Math.round(2*(sumPRO / notesPRO.length)) / 2
+    sumINTER = Math.round(2*(sumINTER / notesINTER.length)) / 2
 
-    console.log("somme pro" + " " + sum);
+    console.log("sumPRO" + " " + sumPRO)
+    console.log("sumINTER" + " " + sumINTER)
 
-
-    sum = sum/allBASE.length
-    sum = Math.round(2 * sum)/2
-
-    console.log("moyenne pro" + " " + sum)
-    document.getElementById("averageBase").innerText = sum
-    
-
-    return sum
-  }
-
-  // Moyennes Culture G 
-
-  function moyenneCG() {
-    let allCG = stockNote.branche[3].notes,
-    sum = 0;
-
-    for (const item of allCG) {
-    sum += item;
-    }
-
-    // TEST
-
-
-    sum = sum/allCG.length
-    sum = Math.round(2 * sum)/2
-
-    document.getElementById("averageCG").innerText = sum
-    
-
-    return sum
-  }
-  
+    let pondINFO = (sumPRO * 0.8) + (sumINTER * 0.2)
+        
+}

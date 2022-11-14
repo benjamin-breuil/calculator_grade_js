@@ -59,9 +59,9 @@
         </div>
 
 
-        <button onclick="addRow(0)">Add</button>
-        <button onclick="editRow(0)" >Edit</button>
-        <button onclick="removeRow(0)" >Remove</button>
+        <button id="button0" >Add</button>
+        <button id="buttonEdit0" >Edit</button>
+        <button id="buttonREM0" >Remove</button>
 
         <div class="tab tab-1" >
             <table id="table0" border="1" >
@@ -82,9 +82,9 @@
         </div>
 
 
-        <button onclick="addRow(1)">Add</button>
-        <button onclick="editRow(1)" >Edit</button>
-        <button onclick="removeRow(1)" >Remove</button>
+        <button id="button1">Add</button>
+        <button id="buttonEdit1" >Edit</button>
+        <button id="buttonREM1" >Remove</button>
 
         <div class="tab tab-1" >
             <table id="table1" border="1" >
@@ -108,9 +108,9 @@
         </div>
 
 
-        <button onclick="addRow(2)">Add</button>
-        <button onclick="editRow(2)" >Edit</button>
-        <button onclick="removeRow(2)" >Remove</button>
+        <button id="button2">Add</button>
+        <button id="buttonEdit2" >Edit</button>
+        <button id="buttonREM2" >Remove</button>
 
         <div class="tab tab-1" >
             <table id="table2" border="1" >
@@ -134,9 +134,9 @@
         </div>
 
 
-        <button onclick="addRow(3)">Add</button>
-        <button onclick="editRow(3)" >Edit</button>
-        <button onclick="removeRow(3)" >Remove</button>
+        <button id="button3">Add</button>
+        <button id="buttonEdit3" >Edit</button>
+        <button id="buttonREM3" >Remove</button>
 
         <div class="tab tab-1" >
             <table id="table3" border="1" >
@@ -157,9 +157,9 @@
         </div>
     
     
-        <button onclick="addRow(4)">Add</button>
-        <button onclick="editRow(4)" >Edit</button>
-        <button onclick="removeRow(4)" >Remove</button>
+        <button id="button4">Add</button>
+        <button id="buttonEdit4" >Edit</button>
+        <button id="buttonREM4" >Remove</button>
 
         <div class="tab tab-1" >
             <table id="table4" border="1" >
@@ -173,7 +173,7 @@
 
     <div class="maxWinput">
         <div  id="chiffreRE"  >
-            <h2>X</h2>
+            <h2 id="cfc" >X</h2>
         </div>
         <div  id="textRE" >
             <h2>Échec</h2>
@@ -185,7 +185,7 @@
             </tr>
             <tr>
                 <td>TPI</td>
-                <td></td>
+                <td id="averageTPI" ></td>
             </tr>
             <tr>
                 <td>Compétences en info.</td>
@@ -206,8 +206,7 @@
 
 
     <footer>
-        <button onclick="moyennePRO()" id="test" >Moyenne pro</button>
-        <button onclick="moyenneINTER()" >Moyenne Inter</button>
+        <button onclick="moyennes()" id="test" >TEST TEST TEST</button>
 
     </footer>
 <script src="./script.js"></script>
