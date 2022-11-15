@@ -131,22 +131,16 @@ function moyennes() {
         sumPRO = average(notesPRO),
         sumINTER = average(notesINTER)
 
-//    if (sumPRO === undefined || isNaN(sumPRO) || sumPRO === 0) {
-//        notesINFO = sumINTER
-//    } else if (sumINTER === undefined || isNaN(sumINTER) || sumINTER === 0) {
-//        notesINFO = sumPRO
-//    } else {
-//        notesINFO = roundNumber((pond(sumPRO, 0.8)) + pond(sumINTER, 0.2), 10)
-//    }
+    if (sumPRO === undefined || isNaN(sumPRO) || sumPRO === 0) {
+        notesINFO = sumINTER
+    } else if (sumINTER === undefined || isNaN(sumINTER) || sumINTER === 0) {
+        notesINFO = sumPRO
+    } else {
+        notesINFO = roundNumber((pond(sumPRO, 0.8)) + pond(sumINTER, 0.2), 10)
+    }
 
+    redBlackGreen(notesINFO, "averageINFO")
 
-    // Put in HTML (branches moyenne)
-
-
-    document.getElementById("averageINFO").innerHTML = notesINFO
-//    document.getElementById("averageBase").innerHTML = sumBASE
-//    document.getElementById("averageCG").innerHTML = sumCG
-//    document.getElementById("averageTPI").innerHTML = notesTPI
 
     // CALCUL NOTE FINALES
 
@@ -186,26 +180,29 @@ function pond(number, pondNum) {
     return number * pondNum
 }
 
+function redBlackGreen(notes, id){
 
+    if (notes === 4) {
+        document.getElementById(id).innerHTML = notes
+        document.getElementById(id).style.color = "black"
+    } else if(notes < 4){
+        document.getElementById(id).innerHTML = notes
+        document.getElementById(id).style.color = "darkred"
+    } else if (notes > 4) {
+        document.getElementById(id).innerHTML = notes
+        document.getElementById(id).style.color = "green"
+    }
+}
+
+// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
 function pondTEST(array) {
     let sum = 0
     let sumPond = 0
     for (const i of array) {
         sum = i[0] * i[1]
-        sumPond = i[1] + i[1]
-        console.log(sum + "  " + sumPond + "  " +array)
+//        sumPond = i[1] + i[1]
+        console.log(sum)
     }
     
-    return console.log(sum)
-}
-
-function ss(){
-    let aaa = [
-        [5,0.4],
-        [5,0.3],
-        [5,0.2],
-        [5,0.1]
-    ]
-
-    pondTEST(aaa)
+    return sum
 }
