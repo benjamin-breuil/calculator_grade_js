@@ -39,7 +39,7 @@ removeRow(0), removeRow(1), removeRow(2), removeRow(3),removeRow(4)
 
 function addNoteInObject(id){
     let note = document.getElementById("notes" + id).valueAsNumber
-//    grades.push(note)
+
     stockNote.branche[id].notes.push(note)
 
     console.log(stockNote)
@@ -53,11 +53,8 @@ function addRow(id){
         newRow = table.insertRow(table.length),
         cell1 = newRow.insertCell(0),
         cell2 = newRow.insertCell(1),
-        notes = document.getElementById("notes" + id). valueAsNumber
+        notes = document.getElementById("notes" + id).valueAsNumber
         modules = document.getElementById("modules" + id).value
-
-
-
         cell1.innerHTML = modules
         cell2.innerHTML = notes    
 
@@ -75,9 +72,9 @@ function editRow(id){
         modules = document.getElementById("modules" + id).value,
         notes = document.getElementById("notes" + id). valueAsNumber
     randomIndexFunction(table, id)
-
+    
     stockNote.branche[id].notes[rIndex - 1] = notes
-
+    
 
     table.rows[rIndex].cells[0].innerHTML = modules;
     table.rows[rIndex].cells[1].innerHTML = notes;
@@ -93,7 +90,7 @@ function removeRow(id){
     let table = document.getElementById("table" + id)
 
     randomIndexFunction(table, id)
-
+    
     stockNote.branche[id].notes.splice(rIndex - 1,1)
 
     table.deleteRow(rIndex)
@@ -102,18 +99,6 @@ function removeRow(id){
     moyennes()
 })
 
-}
-
-function changeBackgroundRow(tables){
-
-    let tbl = tables
-
-    for(var i = 1; i < tbl.rows.length; i++){
-        tbl.rows[i].onclick = function(){
-            rIndex = this.rowIndex
-            this.classList.toggle("selected");
-        }
-    }
 }
 
 function randomIndexFunction(tables, ids){
@@ -130,33 +115,94 @@ function randomIndexFunction(tables, ids){
     return rIndex
 }
 
-
-
-
 function moyennes(){
+
     let notesPRO = stockNote.branche[0].notes,
-        notesINTER = stockNote.branche[1].notes,
-        sumPRO = 0,
-        sumINTER = 0
+        notesINTER = stockNote.branche[1].notes
     
-    for (const item of notesPRO) {
-        sumPRO += item;
+    // MOYENNE COMPÉTENCES EN INFORMATIQUES
+
+    let sumPRO = 0,
+        sumINTER = 0,
+        notesINFO
+
+    sumPRO = average(sumPRO, notesPRO)
+
+    sumINTER = average(sumINTER, notesINTER)
+    
+    if (sumPRO === undefined || isNaN(sumPRO) || sumPRO === 0) {
+        notesINFO = sumINTER
+    } else if(sumINTER === undefined || isNaN(sumINTER) || sumINTER === 0){
+        notesINFO = sumPRO
+    } else {
+        notesINFO = roundNumber((pond(sumPRO, 0.8))+pond(sumINTER, 0.2), 10)
     }
+    
 
-    for (const item of notesINTER) {
-        sumINTER += item;
-    }
 
-    sumPRO = Math.round(2*(sumPRO / notesPRO.length)) / 2
-    sumINTER = Math.round(2*(sumINTER / notesINTER.length)) / 2
+    // MOYENNES COMP. DE BASE
+    
+    let sumBASE = 0,
+        notesBASE = stockNote.branche[2].notes
 
-    console.log("sumPRO" + " " + sumPRO)
-    console.log("sumINTER" + " " + sumINTER)
+        sumBASE = roundNumber(average(sumBASE, notesBASE),2) 
+    
+        // MOYENNE CULTURE GENERAL
+    
+    let sumCG = 0,
+        notesCG = stockNote.branche[3].notes
 
-    let pondINFO = (sumPRO * 0.8) + (sumINTER * 0.2)
+        sumCG = roundNumber( average(sumCG, notesCG),2)
 
-    console.log("pondINFO" + "  " + pondINFO)
+    // TPI
+    let notesTPI = stockNote.branche[4].notes
 
-    document.getElementById("averageINFO").innerHTML = pondINFO
+
+    // Put in HTML (branches moyenne)
+    
+
+    document.getElementById("averageINFO").innerHTML = notesINFO
+    document.getElementById("averageBase").innerHTML = sumBASE
+    document.getElementById("averageCG").innerHTML = sumCG
+    document.getElementById("averageTPI").innerHTML = notesTPI
+
+    // CALCUL NOTE FINALES
+
+    let noteFinales
+
+    if (noteFinales >=4) {
+        document.getElementById("chiffreRE").style.background = "green"
+
+        document.getElementById("textRE").style.background = "green"
+        document.getElementById("re").innerHTML = "Réussie"
+    } else {
+        document.getElementById("chiffreRE").style.background = "darkred"
+
         
+        document.getElementById("textRE").style.background = "darkred"
+        document.getElementById("re").innerHTML = "Échec"
+    }
+
+    document.getElementById("cfc").innerHTML = noteFinales
+
+
+}
+
+function roundNumber(number, precision){
+    return Math.round(number * precision)/precision
+}
+
+function average(branche, array) {
+    for (const item of array) {
+        branche += item;
+    }
+    return branche / array.length
+}
+
+function pond(number, pondNum){
+    return number * pondNum
+}
+
+function ss() {
+    console.log(stockNote)
 }
