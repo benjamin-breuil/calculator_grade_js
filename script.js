@@ -5,42 +5,70 @@ let stockNote = {
     branche: [
         {
             name: 'ecolepro',
-            notes: []
+            notes: [
+                allSemestre = []
+            ]
         },
 
         {
             name: 'coursinter',
-            notes: []
+            notes: [
+                allSemestre = []
+            ]
         },
 
         {
             name: 'mathAnglais',
-            notes: []
+            notes: [
+                semestre1 = [],
+                semestre2 = [],
+                semestre3 = [],
+                semestre4 = [],
+                semestre5 = []
+            ]
         },
 
         {
             name: 'cultureG',
-            notes: []
+            notes: [
+                semestre1 = [],
+                semestre2 = [],
+                semestre3 = [],
+                semestre4 = [],
+                semestre5 = []
+            ]
         },
 
         {
             name: 'tpi',
-            notes: []
+            notes: [
+                allSemestre = []
+            ]
         }
     ]
 }
-
 // ADD ROW
 addRow(0), addRow(1), addRow(2), addRow(3), addRow(4)
 // EDIT ROW
 editRow(0), editRow(1), editRow(2), editRow(3), editRow(4)
 // REM. ROW
 removeRow(0), removeRow(1), removeRow(2), removeRow(3), removeRow(4)
+//
+
+
+
 
 function addNoteInObject(id) {
     let note = document.getElementById("notes" + id).valueAsNumber
+    
 
-    stockNote.branche[id].notes.push(note)
+    if (id === 0 || id === 1 || id === 4) {
+        stockNote.branche[id].notes[0].push(note)
+    } else {
+        stockNote.branche[id].notes[choice].push(note)
+    }
+
+
 
     console.log(stockNote)
 }
@@ -61,7 +89,7 @@ function addRow(id) {
         randomIndexFunction(table, id)
         addNoteInObject(id)
         moyennes()
-        // Moyenne branches
+        // Storage Item
     })
 }
 
@@ -73,8 +101,15 @@ function editRow(id) {
             notes = document.getElementById("notes" + id).valueAsNumber
         randomIndexFunction(table, id)
 
-        stockNote.branche[id].notes[rIndex - 1] = notes
+        //-------------------------------------------------------------
+        
+        if (id === 0 || id === 1 || id === 4) {
+            stockNote.branche[id].notes[0][rIndex - 1] = notes
+        } else {
+            stockNote.branche[id].notes[choice][rIndex - 1] = notes
+        }
 
+        //--------------------------------------------------------------
 
         table.rows[rIndex].cells[0].innerHTML = modules;
         table.rows[rIndex].cells[1].innerHTML = notes;
@@ -91,7 +126,15 @@ function removeRow(id) {
 
         randomIndexFunction(table, id)
 
-        stockNote.branche[id].notes.splice(rIndex - 1, 1)
+        // -------------------------------------
+
+        if (id === 0 || id === 1 || id === 4) {
+            stockNote.branche[id].notes[0].splice(rIndex - 1, 1)
+        } else {
+            stockNote.branche[id].notes[choice].splice(rIndex - 1, 1)
+        }
+
+        // -------------------------------------------------
 
         table.deleteRow(rIndex)
         document.getElementById("notes" + id).value = "";
@@ -101,9 +144,12 @@ function removeRow(id) {
 
 }
 
+
+
 function randomIndexFunction(tables, ids) {
     for (var i = 1; i < tables.rows.length; i++) {
         tables.rows[i].onclick = function () {
+
             rIndex = this.rowIndex
             document.getElementById("modules" + ids).value = this.cells[0].innerHTML
             document.getElementById("notes" + ids).value = this.cells[1].innerHTML
@@ -121,25 +167,34 @@ function randomIndexFunction(tables, ids) {
 }
 
 function moyennes() {
-
-    let notesPRO = stockNote.branche[0].notes,
-        notesINTER = stockNote.branche[1].notes
-
     // MOYENNE COMPÉTENCES EN INFORMATIQUES
 
+    let notesPRO = stockNote.branche[0].notes[0],
+        notesINTER = stockNote.branche[1].notes[0]
+    
+    console.log('JSUISS DNASNAIFHASF' + "   "  + notesPRO)
+
+
     let notesINFO,
-        sumPRO = average(notesPRO),
-        sumINTER = average(notesINTER)
+        sumPRO = roundNumber(average(notesPRO),10) ,
+        sumINTER = roundNumber(average(notesINTER),10) 
 
     if (sumPRO === undefined || isNaN(sumPRO) || sumPRO === 0) {
         notesINFO = sumINTER
     } else if (sumINTER === undefined || isNaN(sumINTER) || sumINTER === 0) {
         notesINFO = sumPRO
     } else {
-        notesINFO = roundNumber((pond(sumPRO, 0.8)) + pond(sumINTER, 0.2), 10)
+        notesINFO = roundNumber(pond(sumPRO, 0.8),10)  + roundNumber(pond(sumINTER, 0.2),10)
     }
 
+    // Moyennes par semestre math anglais
+
+    // Put the note in color green black or red depending of the notes
+
+
     redBlackGreen(notesINFO, "averageINFO")
+
+
 
 
     // CALCUL NOTE FINALES
@@ -182,13 +237,13 @@ function pond(number, pondNum) {
 
 function redBlackGreen(notes, id){
 
-    if (notes === 4) {
+    if (notes === 4.5) {
         document.getElementById(id).innerHTML = notes
         document.getElementById(id).style.color = "black"
-    } else if(notes < 4){
+    } else if(notes < 4.5){
         document.getElementById(id).innerHTML = notes
         document.getElementById(id).style.color = "darkred"
-    } else if (notes > 4) {
+    } else if (notes > 4.5) {
         document.getElementById(id).innerHTML = notes
         document.getElementById(id).style.color = "green"
     }
@@ -200,9 +255,20 @@ function pondTEST(array) {
     let sumPond = 0
     for (const i of array) {
         sum = i[0] * i[1]
-//        sumPond = i[1] + i[1]
-        console.log(sum)
+        sumPond = sumPond+=i[1]
+        console.log("sum normal " + sum)
+        console.log("sum pondération " + sumPond)
     }
     
     return sum
 }
+
+function ss(){
+    let aaa = [
+        [1,4],
+        [20,4]
+    ]
+    pondTEST(aaa)
+}
+
+// Notes : J'aurai du commencé par lister toute les fonctionnalités ect mal organisé
