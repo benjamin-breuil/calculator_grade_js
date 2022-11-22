@@ -1,5 +1,5 @@
-let grades = []
 let rIndex
+let choice
 let stockNote = {
     names: 'Notes',
     branche: [
@@ -47,6 +47,14 @@ let stockNote = {
         }
     ]
 }
+
+
+chooseIndex(3)
+chooseIndex(2)
+
+
+
+
 // ADD ROW
 addRow(0), addRow(1), addRow(2), addRow(3), addRow(4)
 // EDIT ROW
@@ -57,17 +65,15 @@ removeRow(0), removeRow(1), removeRow(2), removeRow(3), removeRow(4)
 
 
 
-
 function addNoteInObject(id) {
     let note = document.getElementById("notes" + id).valueAsNumber
-    
+    chooseIndex(id)
 
     if (id === 0 || id === 1 || id === 4) {
         stockNote.branche[id].notes[0].push(note)
     } else {
         stockNote.branche[id].notes[choice].push(note)
     }
-
 
 
     console.log(stockNote)
@@ -102,13 +108,12 @@ function editRow(id) {
         randomIndexFunction(table, id)
 
         //-------------------------------------------------------------
-        
+        chooseIndex(id)
         if (id === 0 || id === 1 || id === 4) {
             stockNote.branche[id].notes[0][rIndex - 1] = notes
         } else {
             stockNote.branche[id].notes[choice][rIndex - 1] = notes
         }
-
         //--------------------------------------------------------------
 
         table.rows[rIndex].cells[0].innerHTML = modules;
@@ -127,12 +132,14 @@ function removeRow(id) {
         randomIndexFunction(table, id)
 
         // -------------------------------------
+        chooseIndex(id)
 
         if (id === 0 || id === 1 || id === 4) {
             stockNote.branche[id].notes[0].splice(rIndex - 1, 1)
         } else {
             stockNote.branche[id].notes[choice].splice(rIndex - 1, 1)
         }
+
 
         // -------------------------------------------------
 
@@ -156,7 +163,7 @@ function randomIndexFunction(tables, ids) {
             let currentRow = rIndex
             console.log("curreeent row " + rIndex)
             console.log(rIndex)
-            Array.from(this.parentElement.children).forEach(function(el){
+            Array.from(this.parentElement.children).forEach(function (el) {
                 el.classList.remove('selected-row')
             })
             this.classList.add('selected-row')
@@ -171,20 +178,20 @@ function moyennes() {
 
     let notesPRO = stockNote.branche[0].notes[0],
         notesINTER = stockNote.branche[1].notes[0]
-    
-    console.log('JSUISS DNASNAIFHASF' + "   "  + notesPRO)
+
+    console.log('JSUISS DNASNAIFHASF' + "   " + notesPRO)
 
 
     let notesINFO,
-        sumPRO = roundNumber(average(notesPRO),10) ,
-        sumINTER = roundNumber(average(notesINTER),10) 
+        sumPRO = roundNumber(average(notesPRO), 10),
+        sumINTER = roundNumber(average(notesINTER), 10)
 
     if (sumPRO === undefined || isNaN(sumPRO) || sumPRO === 0) {
         notesINFO = sumINTER
     } else if (sumINTER === undefined || isNaN(sumINTER) || sumINTER === 0) {
         notesINFO = sumPRO
     } else {
-        notesINFO = roundNumber(pond(sumPRO, 0.8),10)  + roundNumber(pond(sumINTER, 0.2),10)
+        notesINFO = roundNumber(pond(sumPRO, 0.8), 10) + roundNumber(pond(sumINTER, 0.2), 10)
     }
 
     // Moyennes par semestre math anglais
@@ -235,12 +242,12 @@ function pond(number, pondNum) {
     return number * pondNum
 }
 
-function redBlackGreen(notes, id){
+function redBlackGreen(notes, id) {
 
     if (notes === 4.5) {
         document.getElementById(id).innerHTML = notes
         document.getElementById(id).style.color = "black"
-    } else if(notes < 4.5){
+    } else if (notes < 4.5) {
         document.getElementById(id).innerHTML = notes
         document.getElementById(id).style.color = "darkred"
     } else if (notes > 4.5) {
@@ -255,20 +262,38 @@ function pondTEST(array) {
     let sumPond = 0
     for (const i of array) {
         sum = i[0] * i[1]
-        sumPond = sumPond+=i[1]
+        sumPond = sumPond += i[1]
         console.log("sum normal " + sum)
         console.log("sum pondération " + sumPond)
     }
-    
+
     return sum
 }
 
-function ss(){
-    let aaa = [
-        [1,4],
-        [20,4]
-    ]
-    pondTEST(aaa)
+function ss() {
+
+    console.log(stockNote)
 }
 
+
+
 // Notes : J'aurai du commencé par lister toute les fonctionnalités ect mal organisé
+
+function chooseIndex(id) {
+    id
+    if (id = 2) {
+        selected = document.getElementsByTagName('select')[0].onchange = function () {
+            choice = this.selectedIndex - 1;
+            console.log(choice);
+            return choice
+        }
+    } if (id = 3) {
+        selected = document.getElementsByTagName('select')[1].onchange = function () {
+            choice = this.selectedIndex - 1;
+            console.log(choice);
+            return choice
+        }
+    }
+    choice
+    return choice
+}

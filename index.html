@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,26 @@
     <link rel="stylesheet" href="./style.css">
     <title>Calculateur</title>
 </head>
+
 <body>
     <header>
-        <div id="title-1" >
+        <div id="title-1">
             <h1>Calculateur CFC</h1>
         </div>
-        <div id="all-title" >
-            <h2 class="box-h2" >École pro.</h2>
-            <h2 class="box-h2" >Cours inters.</h2>
-            <h2 class="box-h2" >C. de base élargie</h2>
-            <h2 class="box-h2" >Culture G.</h2>
-            <h2 class="box-h2" >TPI</h2>
-            <h2 class="box-h2" >Toutes les moyennes</h2>
+        <div id="all-title">
+            <h2 class="box-h2">École pro.</h2>
+            <h2 class="box-h2">Cours inters.</h2>
+            <h2 class="box-h2">C. de base élargie</h2>
+            <h2 class="box-h2">Culture G.</h2>
+            <h2 class="box-h2">TPI</h2>
+            <h2 class="box-h2">Toutes les moyennes</h2>
         </div>
     </header>
     <main>
-        <div   id="dropdown-div" >
+        <div id="dropdown-div">
             <form id="dropdown-culture-g" name="dropdown-culture-g" action="">
                 <select class="dropdown-style" name="semestre" id="semestre-c-de-base">
+                    <option value="x">Choisir le semestre</option>
                     <option value="0">Semestre 1</option>
                     <option value="1">Semestre 2</option>
                     <option value="2">Semestre 3</option>
@@ -35,181 +38,180 @@
 
             <form id="dropdown-m-a" name="dropdown-m-a" action="">
                 <select class="dropdown-style" name="semestre" id="semestre-culture-g">
-                    <option value="1">Semestre 1</option>
-                    <option value="2">Semestre 2</option>
-                    <option value="3">Semestre 3</option>
-                    <option value="4">Semestre 4</option>
-                    <option value="5">Semestre 5</option>
+                    <option value="x">Choisir le semestre</option>
+                    <option value="0">Semestre 1</option>
+                    <option value="1">Semestre 2</option>
+                    <option value="2">Semestre 3</option>
+                    <option value="3">Semestre 4</option>
+                    <option value="4">Semestre 5</option>
                 </select>
             </form>
         </div>
 
-
-
-
     </main>
 
-<section id="flexInput" >
-    <div class="maxWinput" >
-        <div>
-            <label for="">Module :</label>
-            <input placeholder="Modules" id="modules0" name="modules" type="number" min="1" max="999" >
-            <label for="">Note :</label>
-            <input placeholder="Notes" id="notes0" name="notes" type="number" step=".5" min="1" max="6" >
+    <section id="flexInput">
+        <div class="maxWinput">
+            <div>
+                <label for="">Module :</label>
+                <input placeholder="Modules" id="modules0" name="modules" type="number" min="1" max="999">
+                <label for="">Note :</label>
+                <input placeholder="Notes" id="notes0" name="notes" type="number" step=".5" min="1" max="6">
+            </div>
+
+
+            <button id="button0">Add</button>
+            <button id="buttonEdit0">Edit</button>
+            <button id="buttonREM0">Remove</button>
+
+            <div class="tab tab-1">
+
+                <table id="table0" border="1">
+                    <tr>
+                        <th class="thStyle">Modules</th>
+                        <th class="thStyle">Notes</th>
+                    </tr>
+                </table>
+            </div>
         </div>
 
+        <div class="maxWinput">
+            <div>
+                <label for="">Module : </label>
+                <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999">
+                <label for="">Note : </label>
+                <input placeholder="Notes" id="notes1" name="notes" type="number" step=".5" min="1" max="6">
+            </div>
 
-        <button id="button0" >Add</button>
-        <button id="buttonEdit0" >Edit</button>
-        <button id="buttonREM0" >Remove</button>
 
-        <div class="tab tab-1" >
+            <button id="button1">Add</button>
+            <button id="buttonEdit1">Edit</button>
+            <button id="buttonREM1">Remove</button>
 
-            <table id="table0" border="1" >
+            <div class="tab tab-1">
+                <table id="table1" border="1">
+                    <tr>
+                        <th class="thStyle">Modules</th>
+                        <th class="thStyle">Notes</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="maxWinput">
+            <div>
+                <label for="">Branche :</label>
+                <select class="select" class="wInput" name="" id="modules2">
+                    <option value="Anglais">Anglais</option>
+                    <option value="Math">Math</option>
+                </select>
+                <label for="">Note : </label>
+                <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6">
+            </div>
+
+
+            <button id="button2">Add</button>
+            <button id="buttonEdit2">Edit</button>
+            <button id="buttonREM2">Remove</button>
+
+            <div class="tab tab-1">
+                <table id="table2" border="1">
+                    <tr>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Notes</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="maxWinput">
+            <div>
+                <label for="">Branche : </label>
+                <select class="select" class="wInput" name="" id="modules3">
+                    <option value="LACO">LACO</option>
+                    <option value="SOCI">SOCI</option>
+                </select>
+                <label for="">Note : </label>
+                <input placeholder="Notes" id="notes3" name="notes" type="number" step=".5" min="1" max="6">
+            </div>
+
+
+            <button id="button3">Add</button>
+            <button id="buttonEdit3">Edit</button>
+            <button id="buttonREM3">Remove</button>
+
+            <div class="tab tab-1">
+                <table id="table3" border="1">
+                    <tr>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Note</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="maxWinput">
+            <div>
+                <label for="">Description : </label>
+                <input placeholder="Description" id="modules4" name="modules" type="text" min="1" max="20">
+                <label for="">Note : </label>
+                <input placeholder="Notes" id="notes4" name="notes" type="number" step=".5" min="1" max="6">
+            </div>
+
+
+            <button id="button4">Add</button>
+            <button id="buttonEdit4">Edit</button>
+            <button id="buttonREM4">Remove</button>
+
+            <div class="tab tab-1">
+                <table id="table4" border="1">
+                    <tr>
+                        <th class="thStyle">Description</th>
+                        <th class="thStyle">Notes</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="maxWinput">
+            <div id="chiffreRE">
+                <h2 id="cfc">X</h2>
+            </div>
+            <div id="textRE">
+                <h2 id="re">Neutre</h2>
+            </div>
+            <table id="tableFinal" border="" 1>
                 <tr>
-                    <th class="thStyle" >Modules</th>
-                    <th class="thStyle" >Notes</th>
+                    <th class="thStyle">Branches</th>
+                    <th class="thStyle" id="moy">Moyennes</th>
+                </tr>
+                <tr>
+                    <td>TPI</td>
+                    <td id="averageTPI"></td>
+                </tr>
+                <tr>
+                    <td>Compétences en info.</td>
+                    <td id="averageINFO"></td>
+                </tr>
+                <tr>
+                    <td>Culture G.</td>
+                    <td id="averageCG"></td>
+                </tr>
+                <tr>
+                    <td>Compétences de b. élargies</td>
+                    <td id="averageBase"></td>
                 </tr>
             </table>
         </div>
-    </div>
-
-    <div class="maxWinput"  >
-        <div>
-            <label for="">Module : </label>
-            <input placeholder="Modules" id="modules1" name="modules" type="number" min="1" max="999" >
-            <label for="">Note : </label>
-            <input placeholder="Notes" id="notes1" name="notes" type="number" step=".5" min="1" max="6" >
-        </div>
-
-
-        <button id="button1">Add</button>
-        <button id="buttonEdit1" >Edit</button>
-        <button id="buttonREM1" >Remove</button>
-
-        <div class="tab tab-1" >
-            <table id="table1" border="1" >
-                <tr>
-                    <th class="thStyle" >Modules</th>
-                    <th class="thStyle" >Notes</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="maxWinput"  >
-        <div>
-            <label for="">Branche :</label>
-            <select class="select" class="wInput" name="" id="modules2" >
-                <option value="Anglais">Anglais</option>
-                <option  value="Math">Math</option>
-            </select>
-            <label for="">Note : </label>
-            <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6" >
-        </div>
-
-
-        <button id="button2">Add</button>
-        <button id="buttonEdit2" >Edit</button>
-        <button id="buttonREM2" >Remove</button>
-
-        <div class="tab tab-1" >
-            <table id="table2" border="1" >
-                <tr>
-                    <th class="thStyle" >Branches</th>
-                    <th class="thStyle" >Notes</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="maxWinput"  >
-        <div>
-            <label for="">Branche : </label>
-            <select class="select" class="wInput" name="" id="modules3" >
-                <option value="LACO">LACO</option>
-                <option value="SOCI">SOCI</option>
-            </select>
-            <label for="">Note : </label>
-            <input placeholder="Notes" id="notes3" name="notes" type="number" step=".5" min="1" max="6" >
-        </div>
-
-
-        <button id="button3">Add</button>
-        <button id="buttonEdit3" >Edit</button>
-        <button id="buttonREM3" >Remove</button>
-
-        <div class="tab tab-1" >
-            <table id="table3" border="1" >
-                <tr>
-                    <th class="thStyle" >Branches</th>
-                    <th class="thStyle" >Note</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="maxWinput">
-        <div>
-            <label for="">Description : </label>
-            <input placeholder="Description" id="modules4" name="modules" type="text" min="1" max="20" >
-            <label for="">Note : </label>
-            <input placeholder="Notes" id="notes4" name="notes" type="number" step=".5" min="1" max="6" >
-        </div>
-    
-    
-        <button id="button4">Add</button>
-        <button id="buttonEdit4" >Edit</button>
-        <button id="buttonREM4" >Remove</button>
-
-        <div class="tab tab-1" >
-            <table id="table4" border="1" >
-                <tr>
-                    <th class="thStyle" >Description</th>
-                    <th class="thStyle" >Notes</th>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="maxWinput">
-        <div  id="chiffreRE"  >
-            <h2 id="cfc" >X</h2>
-        </div>
-        <div  id="textRE" >
-            <h2 id="re" >Neutre</h2>
-        </div>
-        <table id="tableFinal" border=""1 >
-            <tr>
-                <th class="thStyle"  >Branches</th>
-                <th class="thStyle" id="moy"  >Moyennes</th>
-            </tr>
-            <tr>
-                <td>TPI</td>
-                <td id="averageTPI" ></td>
-            </tr>
-            <tr>
-                <td>Compétences en info.</td>
-                <td  id="averageINFO"  ></td>
-            </tr>
-            <tr>
-                <td>Culture G.</td>
-                <td id="averageCG" ></td>
-            </tr>
-            <tr>
-                <td>Compétences de b. élargies</td>
-                <td id="averageBase" ></td>
-            </tr>
-        </table>
-    </div>
-</section>
+    </section>
 
 
 
     <footer>
-        <button onclick="ss()" id="test" >TEST TEST TEST</button>
+        <button onclick="ss()" id="test">TEST TEST TEST</button>
 
     </footer>
-<script src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>
