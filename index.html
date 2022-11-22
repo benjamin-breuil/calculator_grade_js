@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <header>
         <div id="title-1">
             <h1>Calculateur CFC</h1>
@@ -26,24 +27,25 @@
     <main>
         <div id="dropdown-div">
             <form id="dropdown-culture-g" name="dropdown-culture-g" action="">
-                <select class="dropdown-style" name="semestre" id="semestre-c-de-base">
-                    <option value="x">Choisir le semestre</option>
-                    <option value="0">Semestre 1</option>
-                    <option value="1">Semestre 2</option>
-                    <option value="2">Semestre 3</option>
-                    <option value="3">Semestre 4</option>
-                    <option value="4">Semestre 5</option>
+                <select class="dropdown-style" name="semestre" id="sem2">
+                    <option value="Choisir semestre">Choisir le semestre</option>
+                    <option value="1">Semestre 1</option>
+                    <option value="2">Semestre 2</option>
+                    <option value="3">Semestre 3</option>
+                    <option value="4">Semestre 4</option>
+                    <option value="5">Semestre 5</option>
+                    <option value="">Afficher tout les semestres</option>
                 </select>
             </form>
 
             <form id="dropdown-m-a" name="dropdown-m-a" action="">
-                <select class="dropdown-style" name="semestre" id="semestre-culture-g">
-                    <option value="x">Choisir le semestre</option>
-                    <option value="0">Semestre 1</option>
-                    <option value="1">Semestre 2</option>
-                    <option value="2">Semestre 3</option>
-                    <option value="3">Semestre 4</option>
-                    <option value="4">Semestre 5</option>
+                <select class="dropdown-style" name="semestre" id="sem3">
+                    <option value="Choisir semestre">Choisir le semestre</option>
+                    <option value="1">Semestre 1</option>
+                    <option value="2">Semestre 2</option>
+                    <option value="3">Semestre 3</option>
+                    <option value="4">Semestre 4</option>
+                    <option value="5">Semestre 5</option>
                 </select>
             </form>
         </div>
@@ -115,10 +117,39 @@
             <button id="buttonREM2">Remove</button>
 
             <div class="tab tab-1">
-                <table id="table2" border="1">
+                <table id="semestre0" id="table2" border="1">
                     <tr>
+                        <label for="">Semestre 1</label>
                         <th class="thStyle">Branches</th>
                         <th class="thStyle">Notes</th>
+                    </tr>
+                </table>
+                <table id="semestre1" border="1" >
+                    <label for="">Semestre 2</label>
+                    <tr>
+                        <th class="thStyle" >Branches</th>
+                        <th class="thStyle" >Notes</th>
+                    </tr>
+                </table>
+                <table id="semestre2" border="1" >
+                    <label for="">Semestre 3</label>
+                    <tr>
+                        <th class="thStyle" >Branches</th>
+                        <th class="thStyle" >Notes</th>
+                    </tr>
+                </table>
+                <table id="semestre3" border="1" >
+                    <label for="">Semestre 4</label>
+                    <tr>
+                        <th class="thStyle" >Branches</th>
+                        <th class="thStyle" >Notes</th>
+                    </tr>
+                </table>
+                <table id="semestre4" border="1" >
+                    <label for="">Semestre 5</label>
+                    <tr>
+                        <th class="thStyle" >Branches</th>
+                        <th class="thStyle" >Notes</th>
                     </tr>
                 </table>
             </div>
@@ -141,8 +172,37 @@
             <button id="buttonREM3">Remove</button>
 
             <div class="tab tab-1">
-                <table id="table3" border="1">
+                <table id="semestreG1" border="1">
                     <tr>
+                        <label for="">Semestre 1</label>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Note</th>
+                    </tr>
+                </table>
+                <table id="semestreG2" border="1">
+                    <tr>
+                        <label for="">Semestre 2</label>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Note</th>
+                    </tr>
+                </table>
+                <table id="semestreG3" border="1">
+                    <tr>
+                        <label for="">Semestre 3</label>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Note</th>
+                    </tr>
+                </table>
+                <table id="semestreG4" border="1">
+                    <tr>
+                        <label for="">Semestre 4</label>
+                        <th class="thStyle">Branches</th>
+                        <th class="thStyle">Note</th>
+                    </tr>
+                </table>
+                <table id="semestreG5" border="1">
+                    <tr>
+                        <label for="">Semestre 5</label>
                         <th class="thStyle">Branches</th>
                         <th class="thStyle">Note</th>
                     </tr>

@@ -1,5 +1,5 @@
 let rIndex
-let choice
+let choice 
 let stockNote = {
     names: 'Notes',
     branche: [
@@ -49,11 +49,18 @@ let stockNote = {
 }
 
 
+
+window.addEventListener('load', () =>{
+    eventSemestre()
+})
+
+function eventSemestre(){
+    document.getElementById("sem3").value = "Choisir semestre"
+    document.getElementById("sem2").value = "Choisir semestre"
+}
+
 chooseIndex(3)
 chooseIndex(2)
-
-
-
 
 // ADD ROW
 addRow(0), addRow(1), addRow(2), addRow(3), addRow(4)
@@ -81,16 +88,39 @@ function addNoteInObject(id) {
 
 function addRow(id) {
     const button = document.getElementById('button' + id)
-
     button.addEventListener('click', function () {
-        let table = document.getElementById("table" + id),
+        let table = document.getElementById("table" + id)
+        notes = document.getElementById("notes" + id).valueAsNumber
+        modules = document.getElementById("modules" + id).value
+        if (!(id === 2 || id === 3)) {
             newRow = table.insertRow(table.length),
             cell1 = newRow.insertCell(0),
             cell2 = newRow.insertCell(1),
-            notes = document.getElementById("notes" + id).valueAsNumber
-        modules = document.getElementById("modules" + id).value
+
         cell1.innerHTML = modules
         cell2.innerHTML = notes
+        } else if (id === 2){
+            chooseIndex(id)
+            console.log(choice)
+            let semestre = document.getElementById("semestre" + choice),
+                row = semestre.insertRow(semestre.length)
+            let cell1 = row.insertCell(0)
+            let cell2 = row.insertCell(1)
+
+            cell1.innerHTML = notes
+            cell2.innerHTML = modules
+        } else if (id === 3){
+            chooseIndex(id)
+            console.log(choice)
+            let semestre = document.getElementById("semestreG" + choice),
+                row = semestre.insertRow(semestre.length)
+            let cell1 = row.insertCell(0)
+            let cell2 = row.insertCell(1)
+
+            cell1.innerHTML = notes
+            cell2.innerHTML = modules
+        }
+
 
         randomIndexFunction(table, id)
         addNoteInObject(id)
@@ -133,13 +163,12 @@ function removeRow(id) {
 
         // -------------------------------------
         chooseIndex(id)
-
+        
         if (id === 0 || id === 1 || id === 4) {
             stockNote.branche[id].notes[0].splice(rIndex - 1, 1)
         } else {
             stockNote.branche[id].notes[choice].splice(rIndex - 1, 1)
         }
-
 
         // -------------------------------------------------
 
@@ -256,6 +285,26 @@ function redBlackGreen(notes, id) {
     }
 }
 
+function chooseIndex(id){
+    id 
+if (id = 2) {
+    selected = document.getElementsByTagName('select')[0].onchange = function () {
+        choice = this.selectedIndex - 1;
+        console.log(choice);
+        return choice
+    }
+} if (id = 3){
+    selected = document.getElementsByTagName('select')[1].onchange = function () {
+        choice = this.selectedIndex - 1;
+        console.log(choice);
+        return choice
+    }
+}
+
+    choice
+    return choice - 1
+}
+
 // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
 function pondTEST(array) {
     let sum = 0
@@ -279,21 +328,3 @@ function ss() {
 
 // Notes : J'aurai du commencé par lister toute les fonctionnalités ect mal organisé
 
-function chooseIndex(id) {
-    id
-    if (id = 2) {
-        selected = document.getElementsByTagName('select')[0].onchange = function () {
-            choice = this.selectedIndex - 1;
-            console.log(choice);
-            return choice
-        }
-    } if (id = 3) {
-        selected = document.getElementsByTagName('select')[1].onchange = function () {
-            choice = this.selectedIndex - 1;
-            console.log(choice);
-            return choice
-        }
-    }
-    choice
-    return choice
-}

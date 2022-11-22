@@ -63,3 +63,20 @@ document.getElementsByTagName('select')[0].onchange = function() {
 var choice = this.selectedIndex;
 console.log(choice);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Filtre depends des semestre
