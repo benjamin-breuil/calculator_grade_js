@@ -111,6 +111,7 @@ function addRow(id) {
             cell2.innerHTML = modules
         } else if (id === 3){
             chooseIndex(id)
+            choice = choice + 1
             console.log(choice)
             let semestre = document.getElementById("semestreG" + choice),
                 row = semestre.insertRow(semestre.length)
