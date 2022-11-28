@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <header>
         <div id="title-1">
             <h1>Calculateur CFC</h1>
@@ -26,25 +25,14 @@
     </header>
     <main>
         <div id="dropdown-div">
-            <form id="dropdown-culture-g" name="dropdown-culture-g" action="">
-                <select class="dropdown-style" name="semestre" id="sem2">
-                    <option value="Choisir semestre">Choisir le semestre</option>
-                    <option value="1">Semestre 1</option>
-                    <option value="2">Semestre 2</option>
-                    <option value="3">Semestre 3</option>
-                    <option value="4">Semestre 4</option>
-                    <option value="5">Semestre 5</option>
-                </select>
-            </form>
-
             <form id="dropdown-m-a" name="dropdown-m-a" action="">
-                <select class="dropdown-style" name="semestre" id="sem3">
-                    <option value="Choisir semestre">Choisir le semestre</option>
-                    <option value="1">Semestre 1</option>
-                    <option value="2">Semestre 2</option>
-                    <option value="3">Semestre 3</option>
-                    <option value="4">Semestre 4</option>
-                    <option value="5">Semestre 5</option>
+                <select id="sem3" class="dropdown-style" name="semestre" id="semestre-culture-g">
+                    <option value="-1" >Choisir le semestre</option>
+                    <option value="0">Semestre 1</option>
+                    <option value="1">Semestre 2</option>
+                    <option value="2">Semestre 3</option>
+                    <option value="3">Semestre 4</option>
+                    <option value="4">Semestre 5</option>
                 </select>
             </form>
         </div>
@@ -103,8 +91,15 @@
             <div>
                 <label for="">Branche :</label>
                 <select class="select" class="wInput" name="" id="modules2">
-                    <option value="Anglais">Anglais</option>
-                    <option value="Math">Math</option>
+                    <option value="-1">Choisir le semestre</option>
+                    <option value="Math 1">Semestre Math 1</option>
+                    <option value="Math 2">Semestre Math 2</option>
+                    <option value="">Semestre Math 3</option>
+                    <option value="3">Semestre Anglais 1</option>
+                    <option value="4">Semestre Anglais 2</option>
+                    <option value="5">Semestre Anglais 3</option>
+                    <option value="6">Semestre Anglais 4</option>
+                    <option value="7">Semestre Anglais 5</option>
                 </select>
                 <label for="">Note : </label>
                 <input placeholder="Notes" id="notes2" name="notes" type="number" step=".5" min="1" max="6">
@@ -115,40 +110,11 @@
             <button id="buttonEdit2">Edit</button>
             <button id="buttonREM2">Remove</button>
 
-            <div class="tab tab-1">
-                <table id="semestre0" id="table2" border="1">
+            <div  class="tab tab-1">
+                <table class="table table-sortable" id="table2" border="1">
                     <tr>
-                        <label for="">Semestre 1</label>
                         <th class="thStyle">Branches</th>
                         <th class="thStyle">Notes</th>
-                    </tr>
-                </table>
-                <table id="semestre1" border="1" >
-                    <label for="">Semestre 2</label>
-                    <tr>
-                        <th class="thStyle" >Branches</th>
-                        <th class="thStyle" >Notes</th>
-                    </tr>
-                </table>
-                <table id="semestre2" border="1" >
-                    <label for="">Semestre 3</label>
-                    <tr>
-                        <th class="thStyle" >Branches</th>
-                        <th class="thStyle" >Notes</th>
-                    </tr>
-                </table>
-                <table id="semestre3" border="1" >
-                    <label for="">Semestre 4</label>
-                    <tr>
-                        <th class="thStyle" >Branches</th>
-                        <th class="thStyle" >Notes</th>
-                    </tr>
-                </table>
-                <table id="semestre4" border="1" >
-                    <label for="">Semestre 5</label>
-                    <tr>
-                        <th class="thStyle" >Branches</th>
-                        <th class="thStyle" >Notes</th>
                     </tr>
                 </table>
             </div>
@@ -171,37 +137,8 @@
             <button id="buttonREM3">Remove</button>
 
             <div class="tab tab-1">
-                <table id="semestreG1" border="1">
+                <table class="table table-sortable" id="table3" border="1">
                     <tr>
-                        <label for="">Semestre 1</label>
-                        <th class="thStyle">Branches</th>
-                        <th class="thStyle">Note</th>
-                    </tr>
-                </table>
-                <table id="semestreG2" border="1">
-                    <tr>
-                        <label for="">Semestre 2</label>
-                        <th class="thStyle">Branches</th>
-                        <th class="thStyle">Note</th>
-                    </tr>
-                </table>
-                <table id="semestreG3" border="1">
-                    <tr>
-                        <label for="">Semestre 3</label>
-                        <th class="thStyle">Branches</th>
-                        <th class="thStyle">Note</th>
-                    </tr>
-                </table>
-                <table id="semestreG4" border="1">
-                    <tr>
-                        <label for="">Semestre 4</label>
-                        <th class="thStyle">Branches</th>
-                        <th class="thStyle">Note</th>
-                    </tr>
-                </table>
-                <table id="semestreG5" border="1">
-                    <tr>
-                        <label for="">Semestre 5</label>
                         <th class="thStyle">Branches</th>
                         <th class="thStyle">Note</th>
                     </tr>

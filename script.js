@@ -1,5 +1,5 @@
 let rIndex
-let choice 
+let choice
 let stockNote = {
     names: 'Notes',
     branche: [
@@ -20,11 +20,14 @@ let stockNote = {
         {
             name: 'mathAnglais',
             notes: [
-                semestre1 = [],
-                semestre2 = [],
-                semestre3 = [],
-                semestre4 = [],
-                semestre5 = []
+                semestre_math_1 = [],
+                semestre_math_2 = [],
+                semestre_math_3 = [],
+                semestre_anglais_1 = [],
+                semestre_anglais_1 = [],
+                semestre_anglais_3 = [],
+                semestre_anglais_4 = [],
+                semestre_anglais_5 = []
             ]
         },
 
@@ -48,19 +51,21 @@ let stockNote = {
     ]
 }
 
-
-
-window.addEventListener('load', () =>{
+window.addEventListener('load', () => {
     eventSemestre()
+    choice = -1
+    console.log(choice)
 })
 
-function eventSemestre(){
-    document.getElementById("sem3").value = "Choisir semestre"
-    document.getElementById("sem2").value = "Choisir semestre"
+function eventSemestre() {
+    document.getElementById("sem3").value = "-1"
+    document.getElementById("modules2").value = "-1"
 }
+
 
 chooseIndex(3)
 chooseIndex(2)
+
 
 // ADD ROW
 addRow(0), addRow(1), addRow(2), addRow(3), addRow(4)
@@ -70,17 +75,20 @@ editRow(0), editRow(1), editRow(2), editRow(3), editRow(4)
 removeRow(0), removeRow(1), removeRow(2), removeRow(3), removeRow(4)
 //
 
-
-
 function addNoteInObject(id) {
     let note = document.getElementById("notes" + id).valueAsNumber
     chooseIndex(id)
 
-    if (id === 0 || id === 1 || id === 4) {
-        stockNote.branche[id].notes[0].push(note)
+    if (!isNaN(note)) {
+        if (id === 0 || id === 1 || id === 4) {
+            stockNote.branche[id].notes[0].push(note)
+        } else {
+            stockNote.branche[id].notes[choice].push(note)
+        }
     } else {
-        stockNote.branche[id].notes[choice].push(note)
+        return
     }
+
 
 
     console.log(stockNote)
@@ -88,41 +96,49 @@ function addNoteInObject(id) {
 
 function addRow(id) {
     const button = document.getElementById('button' + id)
+
     button.addEventListener('click', function () {
-        let table = document.getElementById("table" + id)
-        notes = document.getElementById("notes" + id).valueAsNumber
-        modules = document.getElementById("modules" + id).value
-        if (!(id === 2 || id === 3)) {
-            newRow = table.insertRow(table.length),
-            cell1 = newRow.insertCell(0),
-            cell2 = newRow.insertCell(1),
+        let table = document.getElementById("table" + id),
+            notes = document.getElementById("notes" + id).valueAsNumber
+        if (id === 0 && !isNaN(notes) || id === 1 && !isNaN(notes) || id === 4 && !isNaN(notes)) {
+            modules = document.getElementById("modules" + id).value
+            let newRow = table.insertRow(table.length),
+                cell1 = newRow.insertCell(0),
+                cell2 = newRow.insertCell(1)
+            cell1.innerHTML = modules
+            cell2.innerHTML = notes
+        } else if (id === 0 || id === 1 || id === 4) {
+            alert("Rentrez une note valide")
+        }
 
-        cell1.innerHTML = modules
-        cell2.innerHTML = notes
-        } else if (id === 2){
-            chooseIndex(id)
-            console.log(choice)
-            let semestre = document.getElementById("semestre" + choice),
-                row = semestre.insertRow(semestre.length)
-            let cell1 = row.insertCell(0)
-            let cell2 = row.insertCell(1)
+        if (id === 2 && choice != -1 || id === 3 && choice != -1) {
+            if (isNaN(notes)) {
+                alert("Rentrez une note valide")
+            } else {
+                if (choice === 0 || choice === 1 || choice === 2) {
+                    let newRow = table.insertRow(table.length),
+                        cell1 = newRow.insertCell(0),
+                        cell2 = newRow.insertCell(1),
+                        modules = "Math"
+                    cell1.innerHTML = modules
+                    cell2.innerHTML = notes
+                } else {
+                    let newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    modules = "Anglais"
+                cell1.innerHTML = modules
+                cell2.innerHTML = notes
+                }
 
-            cell1.innerHTML = notes
-            cell2.innerHTML = modules
-        } else if (id === 3){
-            chooseIndex(id)
-            choice = choice + 1
-            console.log(choice)
-            let semestre = document.getElementById("semestreG" + choice),
-                row = semestre.insertRow(semestre.length)
-            let cell1 = row.insertCell(0)
-            let cell2 = row.insertCell(1)
-
-            cell1.innerHTML = notes
-            cell2.innerHTML = modules
+            }
+        } else if (id === 2 || id === 3) {
+            alert("Choisis un semestre valide")
         }
 
 
+
+        chooseIndex(id)
         randomIndexFunction(table, id)
         addNoteInObject(id)
         moyennes()
@@ -164,12 +180,13 @@ function removeRow(id) {
 
         // -------------------------------------
         chooseIndex(id)
-        
+
         if (id === 0 || id === 1 || id === 4) {
             stockNote.branche[id].notes[0].splice(rIndex - 1, 1)
         } else {
             stockNote.branche[id].notes[choice].splice(rIndex - 1, 1)
         }
+
 
         // -------------------------------------------------
 
@@ -181,16 +198,12 @@ function removeRow(id) {
 
 }
 
-
-
 function randomIndexFunction(tables, ids) {
     for (var i = 1; i < tables.rows.length; i++) {
         tables.rows[i].onclick = function () {
-
             rIndex = this.rowIndex
             document.getElementById("modules" + ids).value = this.cells[0].innerHTML
             document.getElementById("notes" + ids).value = this.cells[1].innerHTML
-            let currentRow = rIndex
             console.log("curreeent row " + rIndex)
             console.log(rIndex)
             Array.from(this.parentElement.children).forEach(function (el) {
@@ -286,25 +299,26 @@ function redBlackGreen(notes, id) {
     }
 }
 
-function chooseIndex(id){
-    id 
-if (id = 2) {
-    selected = document.getElementsByTagName('select')[0].onchange = function () {
-        choice = this.selectedIndex - 1;
-        console.log(choice);
-        return choice
+
+function chooseIndex(id) {
+    id
+    if (id = 2) {
+        selected = document.getElementsByTagName('select')[0].onchange = function () {
+            choice = this.selectedIndex - 1;
+            console.log(choice);
+            return choice
+        }
+    } if (id = 3) {
+        selected = document.getElementsByTagName('select')[1].onchange = function () {
+            choice = this.selectedIndex - 1;
+            console.log(choice);
+            return choice
+        }
     }
-} if (id = 3){
-    selected = document.getElementsByTagName('select')[1].onchange = function () {
-        choice = this.selectedIndex - 1;
-        console.log(choice);
-        return choice
-    }
+    choice
+    return choice
 }
 
-    choice
-    return choice - 1
-}
 
 // TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST 
 function pondTEST(array) {
@@ -328,4 +342,5 @@ function ss() {
 
 
 // Notes : J'aurai du commencé par lister toute les fonctionnalités ect mal organisé
+
 
