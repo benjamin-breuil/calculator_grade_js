@@ -214,21 +214,21 @@ function deleteTable() {
     }
 }
 
-deleteTable() 
+deleteTable()
 
 function deleteTable(index) {
     let selector = document.querySelectorAll(".select");
     chooseIndex(index)
     for (const iterator of selector) {
         iterator.addEventListener("change", function (e) {
-        //    let index = e.target.id.split("-")[1];
+            //    let index = e.target.id.split("-")[1];
             let table = document.getElementById("table-" + index);
             var rowLength = table.rows.length;
             for (var i = rowLength - 1; i > 1; i--) {
                 table.deleteRow(i);
             }
             //Adds the stored notes in table
-//            let semestre = e.target.value;
+            //            let semestre = e.target.value;
             let rightNote = stockNote.branche[index].notes[choice]
             for (const grade of rightNote) {
                 let row = table.insertRow(0);
@@ -250,14 +250,14 @@ function deleteTable(index) {
 
 
 
-function elseIfElseIfElse(un,deux,trois,quatre,cinq,six) {
+function elseIfElseIfElse(un, deux, trois, quatre, cinq, six) {
     if (un === undefined || isNaN(un) || un === 0) {
         baseNote = roundNumber(((deux + trois + quatre + cinq) / 4), 2)
     } else if (un === undefined || isNaN(un) || un === 0) {
         baseNote = roundNumber(((trois + quatre + cinq) / 3), 2)
-    } else if (un === undefined || isNaN(un) || un === 0){
+    } else if (un === undefined || isNaN(un) || un === 0) {
         baseNote = roundNumber(((quatre + cinq) / 2), 2)
-    } else if (un === undefined || isNaN(un) || un === 0){
+    } else if (un === undefined || isNaN(un) || un === 0) {
         baseNote = roundNumber(((cinq) / 1), 2)
     } else {
         baseNote = six
@@ -279,7 +279,98 @@ function nameF(un, deux, trois, quatre, cinq) {
 
     if (un === undefined || isNaN(un) || un === 0) {
         baseNote = roundNumber(((deux + trois + quatre + cinq) / 4), 2)
-    } 
+    }
 
     return baseNote
+}
+
+
+
+function test(id) {
+    let table = document.getElementById('table-' + id);
+    let notes = stockNote.branche[id].notes
+
+    if (id = 0 || id === 1 || id === 4) {
+        // Boucle sur les notes
+        for (let i = 0; i < notes.length; i++) {
+            // Créez une nouvelle ligne de tableau
+            let newRow = table.insertRow(table.length)
+
+            // Récupérez la valeur de l'utilisateur pour cette note
+            let user = notes[i];
+
+            // Créez une cellule de tableau pour l'utilisateur
+            let cell = newRow.insertCell(1)
+
+            cell.innerHTML = user;
+        }
+    } else {
+        return 0
+    }
+}
+
+// const stockNote = [1, 2, 3, 4, 5];
+
+
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    let newRow = table.insertRow(table.length)
+    // Récupérez la valeur de l'utilisateur pour cette note
+    // Créez une cellule de tableau pour l'utilisateur
+    let cell1 = newRow.insertCell(0)
+    let cell = newRow.insertCell(1)
+    cell1.innerHTML = 0
+    cell.innerHTML = element;
+}
+
+
+
+
+const stockNotes = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < stockNote.length; i++) {
+    const element = stockNote[i]
+    console.log(element)
+}
+
+
+
+const stockNote = {
+    branche: [
+        {
+            name: 'ecolepro',
+            notes: [
+                allSemestre = [1, 2, 3, 4, 5, 6, 7, 8]
+            ],
+            modules: [
+                modules = []
+            ]
+        }
+    ]
+};
+
+let notes = stockNote.branche[0].notes[0]
+for (let i = 0; i < notes.length; i++) {
+    const element = notes[i]
+    console.log(element)
+}
+
+
+
+function test(id) {
+    let table = document.getElementById('table-' + id);
+    let notes = stockNote.branche[0].notes[0]
+    if (id = 0 || id === 1 || id === 4) {
+        for (let i = 0; i < notes.length; i++) {
+            const element = notes[i]
+            console.log(element)
+            let newRow = table.insertRow(table.length)
+            let cell1 = newRow.insertCell(0)
+            let cell2 = newRow.insertCell(1)
+            cell1.innerHTML = 0
+            cell2.innerHTML = element;
+        }
+    } else {
+        return 0
+    }
 }
