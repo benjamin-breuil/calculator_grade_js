@@ -127,11 +127,8 @@ function otherTableLoad(index) {
         let cell2 = row.insertCell(1)
         currentSelectedRow(table, index)
         cell2.innerHTML = grade
-        for (let i = 0; i < branches.length; i++) {
-            const element = branches[i]
-            console.log(element)
-            cell1.innerHTML = element
-        }
+        cell1.innerHTML = branches
+
 
     }
 }
